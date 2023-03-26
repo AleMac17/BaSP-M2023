@@ -1,5 +1,8 @@
 # Become a Software Professional 2023
 
+###### Week 00
+*Very Excited about the course*
+
 ## Week 01
 In the first week, we created the design of the website in Figma
 ![Figma Preview](https://github.com/AleMac17/BaSP-M2023/blob/main/Week-01/figma-preview.png)
