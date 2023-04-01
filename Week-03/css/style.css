@@ -4,6 +4,32 @@
 a{
     text-decoration: none;
 }
+header{
+    border-bottom: 9px #AACE9B solid;
+}
+/*Clases generales*/
+.social-logo{
+    width: 50px;
+    height: 50px;
+}
+.float-left{
+    float: left;
+}
+.float-right{
+    float: right;
+}
+
+/* Header */
+.header-bot-container{
+    overflow: hidden;
+}
+.header-bot-container p{
+    font-size:30px;
+    font-weight: bold;
+}
+
+
+
 
 
 footer{
@@ -17,10 +43,7 @@ footer{
     font-size: large;
     padding: 31px;
 }
-.footer-container-social a img{
-    width: 50px;
-    height: 50px;
-}
+
 .footer-container-text{
     margin: 42px 0px 37px 0px;
     font-size: 12px;
@@ -29,3 +52,5 @@ footer{
     margin-top: 26px;
 
 }
+
+
