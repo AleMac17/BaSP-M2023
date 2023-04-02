@@ -119,12 +119,13 @@ ul{
 }
 /*Section features */
 .section-features-container-box-h3-p{
-    width: 300px;
+    width: 393px;
     margin-left: 40px;
 }
 .section-features-container-box-h3-p h3{
     font:var(--font-headline);
     color: var(--color-primary-blue);
+    margin-top: 0;
 }
 .section-features-container-box-h3-p p{
     font:var(--font-component-body);
@@ -133,6 +134,7 @@ ul{
 .section-features .h2{
     padding-bottom: 19px;
     border-bottom: #AACE9B solid 4px;
+    margin-bottom: 71px;
 }
 .section-features-container-box{
     height: 300px;
