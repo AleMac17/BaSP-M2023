@@ -140,8 +140,73 @@ ul{
     height: 300px;
 }
 
+/*Section contact*/
+.section-form{
+    margin: 0 52px;
+}
+.section-form h2{
+    color: rgba(55, 56, 103, 1);
+}
+form label{
+    display: block;
+}
+.form-container-data{
+    width: 456px;
+    margin-top: 36px
+}
+.form-container-select{
+    display: block;
+    margin-top: 36px;
+}
 
-
+.form-container-text{
+    margin-top: 36px;
+    display: block;
+}
+.form-container-data input{
+    width: 456px;
+    margin: 0 0px;
+    border: 1px solid #373867;
+    border-radius: 4px;
+    margin-top: 7px;
+}
+.form-container-select select{
+    border: 1px solid #373867;
+    border-radius: 4px;
+    width: 716px;
+    margin-top: 7px;
+}
+.form-container-text input{
+    width: 1408px;
+    height: 174px;
+    border: 1px solid #373867;
+    border-radius: 4px;
+    margin-top: 7px;
+}
+.form-buttons{
+    margin-top: 53px;
+}
+.form-buttons button{
+    width: 136px;
+    height: 36px;
+    border-radius: 5px;
+    align-items: center;
+    padding: 10px 24px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 15px;
+    color: var(--color-primary-blue);
+    border: none;
+}
+.form-buttons button[type="submit"]{
+    background: #AACE9B;
+    margin-left: 91px;
+}
+.form-buttons button[type="reset"]{
+    background: white;
+    border: 1px solid var(--color-primary-blue);
+}
 
 /*Section features*/
 .section-features{
