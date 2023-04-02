@@ -1,3 +1,7 @@
+:root{
+    --font-headline:bold 40px 'Roboto', sans-serif;
+}
+
 *{
     font-family:'Roboto', sans-serif;
 }
@@ -6,6 +10,9 @@ a{
 }
 header{
     border-bottom: 9px #AACE9B solid;
+}
+section{
+    overflow: hidden;
 }
 /*Clases generales*/
 .social-logo{
@@ -18,6 +25,21 @@ header{
 .float-right{
     float: right;
 }
+.display-inline-block{
+    display: inline-block;
+}
+.btn{
+    background: #AACE9B;
+    border-radius: 5px;
+    width: 154px;
+    height: 49px;
+    border-width: 0;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 19px;
+    letter-spacing: 0em;
+    color: rgba(55, 56, 103, 1);
+}
 
 /* Header */
 .header-bot-container{
@@ -26,9 +48,50 @@ header{
 .header-bot-container p{
     font-size:30px;
     font-weight: bold;
+    margin-bottom:17px;
 }
+/* Section Title*/
+.section-title{
+    height: 905;
+    background-color:rgba(170, 206, 155, 0.1) ;
+    padding: 73.5px 48px;
+}
+.section-title img{
+    width: 677px;
+    height: 698px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+.section-title-container-text{
+    width: 667px;
+    height: 693px;
+}
+.section-title-container-text >div{
+    margin-top: 61px;
+}   
+.section-title-container-text > h3{
+    color:rgba(55, 56, 103, 0.4);
+    margin-top: 0px;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 35px;
+}    
+.section-title-container-text > p{
+    margin-top: 109px;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 30px;
+    letter-spacing: 0.065em;
+    text-align: left;
+    color: rgba(55, 56, 103, 0.4);
 
-
+}    
+.section-title-container-text > button{
+    margin-top: 94px;
+}    
+.section-title-container-text div:first-child span,h1{
+    font: var(--font-headline);
+    color: rgba(55, 56, 103, 1);
+}
 
 
 
