@@ -1,5 +1,6 @@
 :root{
     --font-headline:bold 40px 'Roboto', sans-serif;
+    --font-component-body:500 14px 'Roboto', sans-serif;
 }
 
 *{
@@ -8,11 +9,21 @@
 a{
     text-decoration: none;
 }
+
 header{
     border-bottom: 9px #AACE9B solid;
 }
 section{
     overflow: hidden;
+}
+ol{
+    margin: 0;
+    padding: 15px;
+}
+ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 /*Clases generales*/
 .social-logo{
@@ -55,6 +66,7 @@ section{
     height: 905;
     background-color:rgba(170, 206, 155, 0.1) ;
     padding: 73.5px 48px;
+    margin: 0 47px;
 }
 .section-title img{
     width: 677px;
@@ -93,8 +105,72 @@ section{
     color: rgba(55, 56, 103, 1);
 }
 
-
-
+/*Section Offer*/
+.section-offer{
+    border-top: 2px solid #DDE1E3;
+    padding-top: 104px;
+    margin: 0px 71px;
+    padding-bottom: 39px;
+}
+.section-offer h2{
+    color: rgba(55, 56, 103, 1);
+    font: var(--font-headline);
+}
+.section-offer ol li{
+    color: rgba(55, 56, 103, 1);
+    font: var(--font-component-body);
+    line-height:16.41px;
+}
+.section-offer-container > div{
+    width: fit-content;
+    height: 400px;
+}
+.section-offer-container > div div{
+    padding-left: 37px;
+}
+.section-offer > div:last-child{
+    text-align: center;
+}
+.section-offer-buttons a{
+    color:rgba(170, 206, 155, 1);
+}
+.section-offer-buttons li:first-of-type{
+    display: inline-block;
+    text-align: center;
+    background: #FFFFFF;
+    border: 1px solid #AACE9B;
+    border-radius: 5px;
+    width: fit-content;
+    height: 30px;
+    padding: 8px 12px;
+    align-items: center;
+    line-height: 30px;
+}
+.section-offer-buttons li:last-of-type{
+    display: inline-block;
+    text-align: center;
+    background: #FFFFFF;
+    border: 1px solid #AACE9B;
+    border-radius: 5px;
+    width: fit-content;
+    height: 30px;
+    padding: 8px 12px;
+    align-items: center;
+    line-height: 30px;
+}
+.section-offer-buttons li{
+    display: inline-block;
+    text-align: center;
+    background: #FFFFFF;
+    border: 1px solid #AACE9B;
+    border-radius: 5px;
+    width: fit-content;
+    height: 25px;
+    padding: 8px 12px;
+    align-items: center;
+    line-height: 30px;
+}
+/*Footer*/
 footer{
     text-align: center;
     border-top: 9px #AACE9B solid;
@@ -113,7 +189,6 @@ footer{
 }
 .footer-container-text p:not(:first-child){
     margin-top: 26px;
-
 }
 
 
