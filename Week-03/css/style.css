@@ -172,12 +172,14 @@ form label{
     margin: 7px 20px 0px 0px;
     border: 1px solid #373867;
     border-radius: 4px;
+    padding: 10px 12px;
 }
 .form-container-select select{
     border: 1px solid #373867;
     border-radius: 4px;
     width: 716px;
     margin-top: 7px;
+    padding: 10px 12px;
 }
 .form-container-text textarea{
     width: 1408px;
