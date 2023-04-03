@@ -12,7 +12,6 @@
     --color-secondary-grayish-blue-40:#37386766;
     --color-secondary-grayish-blue-10:#3738671a;
     --color-secondary-grayish-green-10:#aace9b1a;
-
 }
 
 *{
@@ -49,6 +48,9 @@ ul{
 }
 .display-inline-block{
     display: inline-block;
+}
+.display-none{
+    display: none;
 }
 .btn{
     width: 154px;
@@ -91,7 +93,7 @@ ul{
     width: 667px;
     height: 693px;
 }
-.section-title-container-text >div{
+.section-title-container-text > div{
     margin-top: 61px;
 }   
 .section-title-container-text > h3{
