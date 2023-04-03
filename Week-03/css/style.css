@@ -32,9 +32,9 @@ ol{
     padding: 15px;
 }
 ul{
-    list-style: none;
     margin: 0;
     padding: 0;
+    list-style: none;
 }
 /*Clases generales*/
 .social-logo{
@@ -51,10 +51,10 @@ ul{
     display: inline-block;
 }
 .btn{
-    background: var(--color-primary-green);
-    border-radius: 5px;
     width: 154px;
     height: 49px;
+    background: var(--color-primary-green);
+    border-radius: 5px;
     border-width: 0;
     font-size: 16px;
     font-weight: 500;
@@ -71,16 +71,16 @@ ul{
     overflow: hidden;
 }
 .header-bot-container p{
+    margin-bottom:17px;
     font-size:30px;
     font-weight: bold;
-    margin-bottom:17px;
 }
 /* Section Title*/
 .section-title{
     height: 905;
-    background-color: var(--color-secondary-grayish-green-10) ;
     padding: 73.5px 48px;
     margin: 0 47px;
+    background-color: var(--color-secondary-grayish-green-10) ;
 }
 .section-title img{
     width: 677px;
@@ -95,19 +95,19 @@ ul{
     margin-top: 61px;
 }   
 .section-title-container-text > h3{
-    color:var(--color-secondary-grayish-blue-40);
     margin-top: 0px;
     font-size: 30px;
     font-weight: 700;
     line-height: 35px;
+    color:var(--color-secondary-grayish-blue-40);
 }    
 .section-title-container-text > p{
+    text-align: left;
     margin-top: 109px;
     font-size: 20px;
     font-weight: 400;
     line-height: 30px;
     letter-spacing: 0.065em;
-    text-align: left;
     color: var(--color-secondary-grayish-blue-40);
 
 }    
@@ -124,9 +124,9 @@ ul{
     margin-left: 40px;
 }
 .section-features-container-box-h3-p h3{
+    margin-top: 0;
     font:var(--font-headline);
     color: var(--color-primary-blue);
-    margin-top: 0;
 }
 .section-features-container-box-h3-p p{
     font:var(--font-component-body);
@@ -144,6 +144,8 @@ ul{
 /*Section contact*/
 .section-form{
     margin: 0 52px;
+    padding-top: 100px;
+    border-top: 2px solid #DDE1E3;
 }
 .section-form h2{
     color: rgba(55, 56, 103, 1);
@@ -169,26 +171,25 @@ form label{
 }
 .form-container-data input{
     width: 456px;
+    padding: 10px 12px;
     margin: 7px 20px 0px 0px;
     border: 1px solid #373867;
     border-radius: 4px;
-    padding: 10px 12px;
 }
 .form-container-select select{
-    border: 1px solid #373867;
-    border-radius: 4px;
     width: 716px;
     margin-top: 7px;
     padding: 10px 12px;
+    border: 1px solid #373867;
+    border-radius: 4px;
 }
 .form-container-text textarea{
     width: 1408px;
     height: 174px;
+    margin-top: 27px;
     border: 1px solid #373867;
     border-radius: 4px;
-    margin-top: 27px;
     resize: none;
-
 }
 .form-buttons{
     margin-top: 53px;
@@ -196,9 +197,9 @@ form label{
 .form-buttons button{
     width: 136px;
     height: 36px;
-    border-radius: 5px;
     align-items: center;
     padding: 10px 24px;
+    border-radius: 5px;
     font-style: normal;
     font-weight: 500;
     font-size: 13px;
@@ -207,8 +208,8 @@ form label{
     border: none;
 }
 .form-buttons button[type="submit"]{
-    background: #AACE9B;
     margin-left: 91px;
+    background: #AACE9B;
 }
 .form-buttons button[type="reset"]{
     background: white;
@@ -217,20 +218,20 @@ form label{
 
 /*Section features*/
 .section-features{
-    border-top: 2px solid #DDE1E3;
     padding-top: 104px;
     margin: 25px 150px;
     padding-bottom: 39px;
+    border-top: 2px solid #DDE1E3;
 }
 .section-features h2{
-    color: rgba(55, 56, 103, 1);
-    font: var(--font-headline);
     width: 340px;
+    font: var(--font-headline);
+    color: rgba(55, 56, 103, 1);
 }
 .section-features ol li{
-    color: rgba(55, 56, 103, 1);
     font: var(--font-component-body);
     line-height:16.41px;
+    color: rgba(55, 56, 103, 1);
 }
 .section-features-container-container{
     width: fit-content;
@@ -256,12 +257,12 @@ form label{
 .section-features-buttons li{
     display: inline-block;
     text-align: center;
+    align-items: center;
+    padding: 6px 14px;
+    margin: 0px 9.5px;
     background: #FFFFFF;
     border: 1px solid var(--color-primary-green);
     border-radius: 5px;
-    padding: 6px 14px;
-    align-items: center;
-    margin: 0px 9.5px;
 }
 .section-features-buttons li a{
     font-size: 12px;
