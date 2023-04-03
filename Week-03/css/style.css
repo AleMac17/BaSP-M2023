@@ -2,6 +2,7 @@
     /*Fonts*/
     --font-headline:bold 40px 'Roboto', sans-serif;
     --font-title: bold 30px 'Roboto', sans-serif;
+    --font-component-title:bold 14px 'Roboto', sans-serif;
     --font-component-body:500 14px 'Roboto', sans-serif;
     --font-secondary-body: 400 12px 'Roboto', sans-serif;
 
@@ -146,29 +147,31 @@ ul{
 }
 .section-form h2{
     color: rgba(55, 56, 103, 1);
+    font: var(--font-title)
 }
 form label{
     display: block;
 }
 .form-container-data{
-    width: 456px;
-    margin-top: 36px
+    margin-top: 36px;
+    font:var(--font-component-title)
 }
 .form-container-select{
     display: block;
     margin-top: 36px;
+    font:var(--font-component-title)
 }
 
 .form-container-text{
     margin-top: 36px;
     display: block;
+    font:var(--font-component-title)
 }
 .form-container-data input{
     width: 456px;
-    margin: 0 0px;
+    margin: 7px 20px 0px 0px;
     border: 1px solid #373867;
     border-radius: 4px;
-    margin-top: 7px;
 }
 .form-container-select select{
     border: 1px solid #373867;
@@ -176,12 +179,14 @@ form label{
     width: 716px;
     margin-top: 7px;
 }
-.form-container-text input{
+.form-container-text textarea{
     width: 1408px;
     height: 174px;
     border: 1px solid #373867;
     border-radius: 4px;
-    margin-top: 7px;
+    margin-top: 27px;
+    resize: none;
+
 }
 .form-buttons{
     margin-top: 53px;
