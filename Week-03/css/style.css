@@ -2,10 +2,11 @@
     /*Fonts*/
     --font-headline:bold 40px 'Roboto', sans-serif;
     --font-title: bold 30px 'Roboto', sans-serif;
+    --font-subheader: normal 20px 'Roboto', sans-serif;
     --font-component-title:bold 14px 'Roboto', sans-serif;
     --font-component-body:500 14px 'Roboto', sans-serif;
     --font-secondary-body: 400 12px 'Roboto', sans-serif;
-
+    --font-body: 400 15px/24px 'Roboto', sans-serif;
     /*Colors*/
     --color-primary-blue:#373867;
     --color-primary-green:#AACE9B;
@@ -13,7 +14,6 @@
     --color-secondary-grayish-blue-10:#3738671a;
     --color-secondary-grayish-green-10:#aace9b1a;
 }
-
 *{
     font-family:'Roboto', sans-serif;
 }
@@ -67,7 +67,6 @@ ul{
 .h2{
     font: var(--font-title);
 }
-
 /* Header */
 .header-bot-container{
     overflow: hidden;
@@ -142,7 +141,6 @@ ul{
 .section-features-container-box{
     height: 300px;
 }
-
 /*Section contact*/
 .section-form{
     margin: 0 52px;
@@ -165,7 +163,6 @@ form label{
     margin-top: 36px;
     font:var(--font-component-title)
 }
-
 .form-container-text{
     margin-top: 36px;
     display: block;
@@ -217,7 +214,51 @@ form label{
     background: white;
     border: 1px solid var(--color-primary-blue);
 }
+/*Section History*/
+.section-history{
+    margin: 50px 52px;
+    border-top:2px solid #DDE1E3;
+    padding-top: 74px;
+}
 
+.section-history-container-title h2{
+    color: var(--color-primary-blue);
+}
+.section-history-container-title p{
+    border-left: 4px solid var(--color-primary-blue);
+    padding-left: 22px;
+    margin-bottom: 50px;
+}
+.section-history p{
+    font: var(--font-body);
+    color: var(--color-secondary-grayish-blue-40);
+    letter-spacing: 0.065em;
+}
+
+.section-history-container-text-img{
+    margin: 13px 195px;
+}
+.section-history-container-text-img:has(>img.float-right) p{
+    padding: 25px 0;
+    border-bottom: 1px solid black;
+}
+.section-history-container-text-img:has(>img.float-left) p{
+    padding: 25px 0;
+    border-top: 1px solid black;
+}
+.float-left.section-history-container-text{
+    padding-right: 50px;
+}
+.float-right.section-history-container-text{
+    padding-left: 50px;
+}
+.section-history-container-text{
+    width: 670px;
+}
+.section-history-container-text h3{
+    font: var(--font-subheader);
+    color: var(--color-primary-blue);
+}
 /*Section features*/
 .section-features{
     padding-top: 104px;
@@ -285,7 +326,6 @@ footer{
     font-size: large;
     padding: 31px;
 }
-
 .footer-container-text{
     margin: 42px 0px 37px 0px;
     font-size: 12px;
