@@ -16,8 +16,8 @@ In the third week, using basic CSS, we styled our HTML to practice and solidify 
 Alejandro Maciá
 
 ```bash
-git add .
-git commit -m "Mega Rocket HTML"
+git add commitment.html knowledge.html happiness.css
+git commit -m "Mega Rocket"
 git push
 ```
 ## Contributing
