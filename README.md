@@ -14,12 +14,3 @@ In the second week, we created the HTML for the page, making sure to use all the
 In the third week, using basic CSS, we styled our HTML to practice and solidify our knowledge in designing and laying out a web page. We learned how to use colors, backgrounds, and basic positioning, as well as how to link our HTML with a CSS file.
 ## Authors
 Alejandro Maciá
-
-```bash
-git add commitment.html knowledge.html happiness.css
-git commit -m "Mega Rocket"
-git push
-```
-## Contributing
-
-For now, I'm okay, please don't disturb your local developer.
