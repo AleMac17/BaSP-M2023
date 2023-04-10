@@ -1,0 +1,16 @@
+header{
+border-bottom: 9px #AACE9B solid;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+}
+
+.header-bot-container {
+    display: flex;
+    align-items: center;
+}
+.header-bot-container p{
+    font-family:'Roboto', sans-serif;
+    font-size:1rem;
+}

@@ -21,9 +21,6 @@
 a{
     text-decoration: none;
 }
-header{
-    border-bottom: 9px var(--color-primary-green) solid;
-}
 section{
     overflow: hidden;
 }
@@ -38,8 +35,8 @@ ul{
 }
 /*Clases generales*/
 .social-logo{
-    width: 50px;
-    height: 50px;
+    width: 5vw;
+    height: auto;
 }
 .display-none{
     display: none;
