@@ -60,25 +60,20 @@ ul{
     font: var(--font-title);
 }
 /* Header */
-.header-bot-container{
-
-}
-.header-bot-container p{
-
-    font-size:30px;
-    font-weight: bold;
-}
-/* Section Title*/
+/* Section Title */
 .section-title{
-
     background-color: var(--color-secondary-grayish-green-10) ;
 }
 .section-title img{
-
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 .section-title-container-text{
-
+    display: flex;
+    flex-direction: column;
+}
+.section-title-container-text div:first-of-type{
+    display: flex;
+    align-items: center;
 }
 .section-title-container-text > div{
 }   
