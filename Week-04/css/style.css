@@ -105,9 +105,10 @@ ul{
     color: var(--color-primary-blue);
 }
 /*Section features */
+.section-features{
+    margin-top: 14vh;
+}
 .section-features-container-box-h3-p{
-
-
 }
 .section-features-container-box-h3-p h3{
 
@@ -119,12 +120,21 @@ ul{
     color: var(--color-primary-blue);
 }
 .section-features .h2{
-
+    margin-top: 6vh;
     border-bottom: #AACE9B solid 4px;
 
 }
+.section-features-container{
+    display: flex;
+    flex-direction: column;
+    gap: 6vh;
+    margin: 7vh 0;
+}
 .section-features-container-box{
-
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: 3vh;
 }
 /*Section contact*/
 .section-form{
