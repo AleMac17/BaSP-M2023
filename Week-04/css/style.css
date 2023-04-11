@@ -132,21 +132,14 @@ ul{
 .section-form{
     border-top: 2px solid #DDE1E3;
 }
+.section-form label{
+    margin: 1.5vh 0;
+}
 .section-form h2{
     color: rgba(55, 56, 103, 1);
     font: var(--font-title)
 }
-.form-container-data{
-    display:flex;
-    flex-direction: column;
-    font:var(--font-component-title)
-}
-.form-container-select{
-    display:flex;
-    flex-direction: column;
-    font:var(--font-component-title)
-}
-.form-container-text{
+.form-flex{
     display:flex;
     flex-direction: column;
     font:var(--font-component-title)
@@ -162,6 +155,7 @@ ul{
     border-radius: 4px;
 }
 .form-container-text textarea{
+    height: 11vh;
     padding: 10px 12px;
     border: 1px solid #373867;
     border-radius: 4px;
@@ -170,10 +164,12 @@ ul{
 .form-buttons{
     display: flex;
     flex-direction: column;
+    margin: 3vh 0;
+    gap: 3vh;
     align-items: center;
 }
 .form-buttons button{
-    width: 20vw;
+    width: 25vw;
     height: 5vh;
     align-items: center;
     border-radius: 5px;
@@ -225,6 +221,9 @@ ul{
 }
 /*Section features*/
 .section-features{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     border-top: 2px solid #DDE1E3;
 }
 .section-features h2{
@@ -278,4 +277,3 @@ ul{
     line-height: 14px;
     letter-spacing: 0em; 
 }
-#icon-cards{}
