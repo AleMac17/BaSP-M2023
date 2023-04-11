@@ -430,6 +430,26 @@ ul{
         width: 340px;
     }
     /**/
+    .form-container {
+        display: flex;
+        justify-content: space-between;
+    }
+    .form-container-data input {
+        width:30vw ;
+    }
+    .form-container-select{
+        align-items: flex-start;
+    }
+    .form-container-select select{
+        width: 40vw;
+    }
+    .form-buttons {
+        flex-direction: row;
+    }
+    .form-buttons button{
+        width: 144px;
+    }
+    /**/
     .section-history-container-text-img{
         flex-direction: row;
     }
