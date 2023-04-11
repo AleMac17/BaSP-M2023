@@ -429,4 +429,31 @@ ul{
         flex-direction: column;
         width: 340px;
     }
+    /**/
+    .section-history-container-text-img{
+        flex-direction: row;
+    }
+    .section-history-container-text-img:last-child{
+        flex-direction: row-reverse;
+        gap: 2vw;
+    }
+    /*Section activities*/
+    .section-activities-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+    .section-activities-buttons-container {
+        margin: 9vh 0vw;
+        align-self: center;
+    }
+    .section-activities-container-container {
+        flex-direction: row-reverse;
+    }
+    .section-activities-buttons {
+        gap: 3vw;
+    }
+    .section-activities-buttons .display-none{
+        display: block;
+    }
 }
