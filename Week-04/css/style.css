@@ -58,7 +58,6 @@ ul{
 .h2{
     font: var(--font-title);
 }
-/* Header */
 /* Section Title */
 .section-title{
     background-color: var(--color-secondary-grayish-green-10) ;
@@ -66,11 +65,12 @@ ul{
 .section-title p:first-of-type{
     font: var(--font-headline);
     color: var(--color-primary-blue);
-
 }
 .section-title img{
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-    width: 366px;
+    width: 100vw;
+    min-width: 390px;
+    max-width: 600px;
 }
 .section-title-container-text{
     display: flex;
@@ -195,8 +195,6 @@ ul{
 .section-history{
     border-top:2px solid #DDE1E3;
 }
-
-
 .section-history-container-title h2{
     color: var(--color-primary-blue);
 }
@@ -208,7 +206,6 @@ ul{
     color: var(--color-secondary-grayish-blue-40);
     letter-spacing: 0.065em;
 }
-
 .section-history-container-text-img{
     display: flex;
     flex-direction: column;
@@ -217,11 +214,9 @@ ul{
     flex-direction: column-reverse;
 }
 .section-history-container-text-img:has(>img.float-right) p{
-
     border-bottom: 1px solid black;
 }
 .section-history-container-text-img:has(>img.float-left) p{
-
     border-top: 1px solid black;
 }
 .section-history-container-text h3{
@@ -230,11 +225,9 @@ ul{
 }
 /*Section features*/
 .section-features{
-
     border-top: 2px solid #DDE1E3;
 }
 .section-features h2{
-
     font: var(--font-headline);
     color: rgba(55, 56, 103, 1);
 }
@@ -248,14 +241,12 @@ ul{
     align-items: center;
     flex-direction: column-reverse;
     margin-top: 10vh;
-
 }
 .section-features-container-container ol{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-
 .section-features-buttons-container{
     margin: 9vh 0vw;
 }
@@ -288,21 +279,3 @@ ul{
     letter-spacing: 0em; 
 }
 #icon-cards{}
-/*Footer*/
-footer{
-    text-align: center;
-    border-top: 9px var(--color-primary-green) solid;
-}
-.footer-container-social{
-}
-.footer-container-social a{
-    font-size: large;
-}
-.footer-container-text{
-    font-size: 12px;
-    font: var(--font-secondary-body);
-    font-weight: 500;
-    color: rgb(104, 105, 119);
-}
-.footer-container-text p:not(:first-child){
-}

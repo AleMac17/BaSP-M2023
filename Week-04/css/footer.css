@@ -1,0 +1,15 @@
+footer{
+    text-align: center;
+    border-top: 9px #AACE9B solid;
+}
+.footer-container-social{
+}
+.footer-container-social a{
+    font-size: large;
+}
+.footer-container-text{
+    font-size: 12px;
+    font: var(--font-secondary-body);
+    font-weight: 500;
+    color: rgb(104, 105, 119);
+}
