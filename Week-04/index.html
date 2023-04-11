@@ -34,43 +34,45 @@
             </div>
         </div>
     </header>
-    <div class="display-none">
-        <img src="../assets/img/icon-magnify.png" alt="Magnify Icon">
-        <input type="search" name="search" id="search" placeholder="Search">
-        <nav>
-            <h3>Menu</h3>
-            <a href="">Home</a>
-            <a href="">Sign Up</a>
-            <a href="">Log In</a>
-            <a href="">Contact Information</a>
-        </nav>
-        <section>
-            <h3>Contact Us</h3>
-            <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
-            <img src="../assets/img/icon-mail.png" alt="Mail Icon">
-            <p>info.megarocket@megarocket.com</p>
-            <img src="../assets/img/icon-telephone.png" alt="Telephone Icon">
-            <p>info.megarocket@megarocket.com</p>
-            <img src="../assets/img/icon-house.png" alt="House Icon">
-            <p>AAA xxx, Rosario, Argentina, CP 2000</p>
-        </section>
-    </div>
     <main>
-        <section class="section-title">
-            <div class="section-title-container-text">
-                <p id="p-title">Welcome to MEGA ROCKET</p>
-                <h3>Winner of Lorem Ipsum of the year</h3>
-                <img src="../assets/img/image-title.png" alt="People working out image">
-                <p>
-                    No solo ganamos el premio, sino que somo el premio:
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse feugiat ante odio, id semper
-                    erat varius ut. Fusce ultricies tempor vehicula. In lobortis varius arcu et dignissim. Donec egestas
-                    ligula lacus, nec eleifend odio tempor vel. Vestibulum ante ipsum primis in faucibus orci luctus et
-                    ultrices posuere cubilia curae; Phasellus dignissim imperdiet
-                </p>
-                <button class="display-none" class="btn">Learn more</button>
-            </div>
-        </section>
+        <div class="section-title-aside">
+            <section class="section-title">
+                <div class="section-title-container-text">
+                    <p id="p-title">Welcome to MEGA ROCKET</p>
+                    <h3>Winner of Lorem Ipsum of the year</h3>
+                    <img src="../assets/img/image-title.png" alt="People working out image">
+                    <p>
+                        No solo ganamos el premio, sino que somo el premio:
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse feugiat ante odio, id semper
+                        erat varius ut. Fusce ultricies tempor vehicula. In lobortis varius arcu et dignissim. Donec egestas
+                        ligula lacus, nec eleifend odio tempor vel. Vestibulum ante ipsum primis in faucibus orci luctus et
+                        ultrices posuere cubilia curae; Phasellus dignissim imperdiet
+                    </p>
+                    <button class="display-none btn">Learn more</button>
+                </div>
+            </section>
+            <aside class="display-none">
+                <img src="../assets/img/icon-magnify.png" alt="Magnify Icon">
+                <input type="search" name="search" id="search" placeholder="Search">
+                <nav>
+                    <h3>Menu</h3>
+                    <a href="">Home</a>
+                    <a href="">Sign Up</a>
+                    <a href="">Log In</a>
+                    <a href="">Contact Information</a>
+                </nav>
+                <section>
+                    <h3>Contact Us</h3>
+                    <p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+                    <img src="../assets/img/icon-mail.png" alt="Mail Icon">
+                    <p>info.megarocket@megarocket.com</p>
+                    <img src="../assets/img/icon-telephone.png" alt="Telephone Icon">
+                    <p>info.megarocket@megarocket.com</p>
+                    <img src="../assets/img/icon-house.png" alt="House Icon">
+                    <p>AAA xxx, Rosario, Argentina, CP 2000</p>
+                </section>
+            </aside>
+        </div>
         <section class="section-features">
             <h2 class="h2">App Features</h2>
             <div class="section-features-container">
@@ -202,7 +204,7 @@
         <section class="section-activities">
             <div class="section-activities-container">
                 <div class="section-activities-container-container">
-                    <div >
+                    <div>
                         <h2>Activities</h2>
                         <ol>
                             <li>Crossfit</li>
@@ -212,7 +214,9 @@
                             <li>Fitness</li>
                         </ol>
                     </div>
-                    <img src="../assets/img/icon-weights.png" alt="Weights icon">
+                    <div class="section-activities-container-container-img">
+                        <img src="../assets/img/icon-weights.png" alt="Weights icon">
+                    </div>
                 </div>
                 <div class="section-activities-container-container">
                     <div >
@@ -224,12 +228,14 @@
                             <li>Grid visualization</li>
                         </ol>
                     </div>
-                    <img src="../assets/img/icon-multiple-cards.png" alt="Multiple Cards icon">
+                    <div class="section-activities-container-container-img">
+                        <img src="../assets/img/icon-multiple-cards.png" alt="Multiple Cards icon">
+                    </div>
                 </div>
             </div>
             <div class="section-activities-container">
                 <div class="section-activities-container-container">
-                    <div >
+                    <div>
                         <h2>
                             Classic Membership
                         </h2>
@@ -239,17 +245,21 @@
                             <li>Grid visualization</li>
                         </ol>
                     </div>
-                    <img src="../assets/img/icon-cards-fill.png" alt="Filled Cards icon">
+                    <div class="section-activities-container-container-img">
+                        <img src="../assets/img/icon-cards-fill.png" alt="Filled Cards icon">
+                    </div>
                 </div>
                 <div class="section-activities-container-container">
-                    <div >
+                    <div>
                         <h2>Only Classes Membership</h2>
                         <ol>
                             <li>Free pass to the weight room</li>
                             <li>Grid visualization</li>
                         </ol>
                     </div>
-                    <img src="../assets/img/icon-cards.png" id="icon-cards" alt="Weights icon">
+                    <div class="section-activities-container-container-img">
+                        <img src="../assets/img/icon-cards.png" id="icon-cards" alt="Weights icon">
+                    </div>
                 </div>
             </div>
             <div class="section-activities-buttons-container">

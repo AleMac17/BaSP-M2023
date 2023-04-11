@@ -51,6 +51,7 @@ ul{
     letter-spacing: 0em;
     color: var(--color-primary-blue);
 }
+
 .h2{
     font: var(--font-title);
 }
@@ -299,6 +300,9 @@ ul{
     flex-direction: column-reverse;
     margin-top: 10vh;
 }
+.section-activities-container-container-img {
+    width: 210px;
+}
 .section-activities-container-container ol{
     display: flex;
     flex-direction: column;
@@ -367,9 +371,62 @@ ul{
         justify-content: flex-end;
         gap: 9vw;
     }
+    .section-activities h2{
+        text-align: left;
+    }
     .section-activities-container-container div{
     }
     .section-activities-container-container ol {
         align-items: flex-start;
+    }
+    .section-activities-buttons-container {
+        margin: 9vh 0vw;
+        align-self: center;
+    }
+    .section-activities-buttons {
+        gap: 5vw;
+    }
+}
+@media(min-width:1025px){
+    .section-title-aside{
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+    }
+    .section-title{
+        background-image: url(../../../assets/img/image-title.png);
+        background-color: rgba(32, 32, 32, 0.45);
+        background-blend-mode: overlay;
+        background-size: cover;
+        width: 100%;
+    }
+    .section-title button{
+        margin-top: 10vh;
+    }
+    .section-title-container-text p{
+        color:white
+    }
+    .section-title p:first-of-type {
+        color: white;
+    }
+    .section-title h3 {
+        color: white;
+    }
+    .section-title-container-text img{
+        display: none ;
+    }
+    .section-title-container-text {
+        align-items: flex-start;
+        gap: 3vh;
+        width: 50vw;
+        padding-left: 3vw;
+    }
+    .section-title-container-text button{
+        display: block;
+    }
+    .section-title-aside aside{
+        display: flex;
+        flex-direction: column;
+        width: 340px;
     }
 }
