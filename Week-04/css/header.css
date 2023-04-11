@@ -1,16 +1,23 @@
 header{
 border-bottom: 9px #AACE9B solid;
-display: flex;
-flex-direction: row;
-justify-content: space-between;
-align-items: center;
 }
 
 .header-bot-container {
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
 }
-.header-bot-container p{
+.header-bot-container div:first-of-type{
+    display: flex;
+    flex-direction: row;
+}
+.header-bot-container h1{
     font-family:'Roboto', sans-serif;
     font-size:1rem;
 }
+.header-bot-container div:first-of-type img{
+    width: 42px;
+    height: auto;
+}
+
