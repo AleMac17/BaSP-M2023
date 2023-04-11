@@ -20,4 +20,8 @@ border-bottom: 9px #AACE9B solid;
     width: 42px;
     height: auto;
 }
-
+@media(min-width:1024px){
+    .header-bot-container div:first-of-type img{
+        display: none;
+    }
+}
