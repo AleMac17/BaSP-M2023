@@ -394,7 +394,7 @@ ul{
         background-color: var(--color-secondary-grayish-green-10);
     }
     .section-title{
-        background-image: url(../../../assets/img/image-title.png);
+        background-image: url(../../assets/img/image-title.png);
         background-color: rgba(32, 32, 32, 0.45);
         background-blend-mode: overlay;
         background-size: cover;
@@ -428,13 +428,14 @@ ul{
         display: flex;
         flex-direction: column;
         justify-content: space-around;
+        height: 85vh;
         width: 340px;
     }
     .section-title-aside aside>div{
         display: flex;
     }
     .section-title-aside aside>div input{
-        background: transparent url(../../../assets/img/icon-magnify.png) no-repeat 13px center;
+        background: transparent url(../../assets/img/icon-magnify.png) no-repeat 13px center;
         margin: 0;
         padding: 9px 4px 9px 40px;
         border-radius: 5px;
@@ -456,6 +457,7 @@ ul{
     .section-title-aside aside section div{
         display: flex;
         flex-direction: row;
+        align-items: center;
     }
     #middle-contact{
         border-bottom:1px solid black ;

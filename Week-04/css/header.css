@@ -28,4 +28,7 @@ border-bottom: 9px #AACE9B solid;
     .header-bot-container div:first-of-type img{
         display: none;
     }
+    .social-logo-header {
+        width: 45px;
+    }
 }

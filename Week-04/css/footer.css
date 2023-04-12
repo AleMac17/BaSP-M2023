@@ -23,3 +23,10 @@ footer{
     width: 50px;
     height: auto;
 }
+
+@media(min-width:1025px){
+.footer-container-social{
+    justify-content: center;
+    gap: 5vh;
+    }   
+}
