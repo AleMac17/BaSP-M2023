@@ -347,7 +347,6 @@ ul{
         flex-direction: row-reverse;
         align-items: center;
     }
-
     .form-buttons {
         flex-direction: row;
         gap: 10vw;
@@ -392,6 +391,7 @@ ul{
         display: flex;
         flex-direction: row-reverse;
         justify-content: flex-end;
+        background-color: var(--color-secondary-grayish-green-10);
     }
     .section-title{
         background-image: url(../../../assets/img/image-title.png);
@@ -427,7 +427,52 @@ ul{
     .section-title-aside aside{
         display: flex;
         flex-direction: column;
+        justify-content: space-around;
         width: 340px;
+    }
+    .section-title-aside aside>div{
+        display: flex;
+    }
+    .section-title-aside aside>div input{
+        background: transparent url(../../../assets/img/icon-magnify.png) no-repeat 13px center;
+        margin: 0;
+        padding: 9px 4px 9px 40px;
+        border-radius: 5px;
+    }
+    .section-title-aside aside nav{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .section-title-aside aside h3{
+        border-bottom: 4px solid var(--color-primary-green) ;
+    }
+    .section-title-aside aside section{
+        display: flex;
+        flex-direction: column;
+        gap: 1vh;
+        align-items: flex-start;
+    }
+    .section-title-aside aside section div{
+        display: flex;
+        flex-direction: row;
+    }
+    #middle-contact{
+        border-bottom:1px solid black ;
+        border-top:1px solid black ;
+    }
+    /**/
+    .section-features-container{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        gap: 0;
+        margin: 0;
+    }
+    .section-features-container-box {
+        flex-direction: row-reverse;
+        flex-basis: 48%;
+        padding: 10px
     }
     /**/
     .form-container {
