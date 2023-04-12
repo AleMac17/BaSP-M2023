@@ -52,7 +52,6 @@ ul{
     letter-spacing: 0em;
     color: var(--color-primary-blue);
 }
-
 .h2{
     font: var(--font-title);
 }
@@ -195,6 +194,7 @@ ul{
     color: var(--color-primary-blue);
 }
 .section-history-container-title p{
+    padding-left: 11px;
     border-left: 4px solid var(--color-primary-blue);
 }
 .section-history p{
@@ -219,8 +219,6 @@ ul{
     font: var(--font-subheader);
     color: var(--color-primary-blue);
 }
-
-/*SEPARAR LOS FEATURES Y LOS TEXT ALIGN Y FLEX START*/
 /*Section features*/
 .section-features{
     display: flex;
@@ -414,7 +412,7 @@ ul{
         color: white;
     }
     .section-title-container-text img{
-        display: none ;
+        display: none;
     }
     .section-title-container-text {
         align-items: flex-start;
@@ -474,7 +472,6 @@ ul{
     }
     #aside-section-first-p{
         font: var(--font-secondary-body);
-
     }
     .section-title-aside aside section p{
         font-weight: 400;
@@ -491,7 +488,6 @@ ul{
         border-bottom:1px solid black ;
         border-top:1px solid black ;
     }
-    /**/
     .section-features-container{
         display: flex;
         flex-wrap: wrap;
@@ -504,7 +500,6 @@ ul{
         flex-basis: 48%;
         padding: 10px
     }
-    /**/
     .form-container {
         display: flex;
         justify-content: space-between;
@@ -524,7 +519,6 @@ ul{
     .form-buttons button{
         width: 144px;
     }
-    /**/
     .section-history-container-text-img{
         flex-direction: row;
     }
@@ -532,7 +526,6 @@ ul{
         flex-direction: row-reverse;
         gap: 2vw;
     }
-    /*Section activities*/
     .section-activities-container {
         display: flex;
         align-items: center;
