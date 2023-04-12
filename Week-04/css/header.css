@@ -31,4 +31,8 @@ border-bottom: 9px #AACE9B solid;
     .social-logo-header {
         width: 45px;
     }
+    .header-bot-container h1{
+        font: bold 30px 'Roboto', sans-serif;
+        color:#37386766;
+    }
 }
