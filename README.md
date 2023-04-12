@@ -12,5 +12,10 @@ In the second week, we created the HTML for the page, making sure to use all the
 
 ## Week 03
 In the third week, using basic CSS, we styled our HTML to practice and solidify our knowledge in designing and laying out a web page. We learned how to use colors, backgrounds, and basic positioning, as well as how to link our HTML with a CSS file.
+
+## Week 04
+In this week, I used Flexbox to create a flexible and adaptable layout. This allowed me to easily organize the elements of the page in rows or columns, adjust their size and alignment effortlessly, and change their order if needed. With Flexbox, I achieved a responsive design that automatically adapts to different screen sizes and devices, without complications or complex layout structures. It was an effective tool for creating a modern and efficient design on my web page.
+
+[Link-page index.html](https://alemac17.github.io/BaSP-M2023/Week-04/index.html "Index")
 ## Authors
 Alejandro Maciá
