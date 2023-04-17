@@ -1,25 +1,44 @@
-var stringUpper = "Uncopyrightable";
-stringUpper.toUpperCase();
+console.log("-- EXERCISE 2: STRINGS");
+/* a. Crear una variable de tipo string con al menos 10 caracteres y convertir todo el texto en mayúscula (utilizar toUpperCase).
+ */
+var stringToUpper = "Uncopyrightable";
+stringToUpper.toUpperCase();
 
-var stringSub1 = "Incomprehensibilities";
-var stringSub5char = stringSub1.substring(0,5);
-console.log(stringSub5char);
+/* b. Crear una variable de tipo string con al menos 10 caracteres y generar un nuevo string
+con los primeros 5 caracteres guardando el resultado en una nueva variable (utilizar substring).
+ */
+var string1 = "Incomprehensibilities";
+var string5char = string1.substring(0,5);
+console.log(string5char);
 
-var stringSub2 = "Spectrophotometer";
-var stringSub3char = stringSub2.substring(stringSub2.length-3,stringSub2.length);
-console.log(stringSub3char);
+/* c. Crear una variable de tipo string con al menos 10 caracteres y generar un nuevo string
+con los últimos 3 caracteres guardando el resultado en una nueva variable (utilizar substring).
+*/
+var string2 = "Spectrophotometer";
+var string3char = string2.substring(string2.length-3,string2.length);
+console.log(string3char);
 
-var stringSub3 = "autobiography"
-var firstLetter = stringSub3.substring(0,1).toUpperCase();
-var restLetter = stringSub3.substring(1,stringSub3.length).toLowerCase();
-var stringSub3Refactorized = firstLetter+restLetter;
-console.log(stringSub3Refactorized);
+/* d. Crear una variable de tipo string con al menos 10 caracteres y generar un nuevo string
+con la primera letra en mayúscula y las demás en minúscula. Guardar el resultado en una nueva variable (utilizar substring, toUpperCase, toLowerCase y el operador +).
+ */
+var string3 = "autobiography"
+var firstLetter = string3.substring(0,1).toUpperCase();
+var restLetter = string3.substring(1,string3.length).toLowerCase();
+var string3Refactorized = firstLetter+restLetter;
+console.log(string3Refactorized);
 
-var stringSub4 = "North Carolina";
-var stringSub4SpacePosition = stringSub4.indexOf(" ");
-console.log(stringSub4SpacePosition);
+/* e. Crear una variable de tipo string con al menos 10 caracteres y algún espacio en blanco.
+ Encontrar la posición del primer espacio en blanco y guardarla en una variable (utilizar indexOf). */
+var string4 = "North Carolina";
+var string4SpacePosition = string4.indexOf(" ");
+console.log(string4SpacePosition);
 
-var stringSub5 = "coNserVatory paLaeoNtoLogY"
-var stringSub5SpacePosition = stringSub5.indexOf(" ");
-var stringSub5Refurbished = stringSub5.substring(0,1).toUpperCase()+stringSub5.substring(1,stringSub5SpacePosition).toLowerCase()+stringSub5.substring(stringSub5SpacePosition+1,stringSub5SpacePosition+2).toUpperCase()+stringSub5.substring(stringSub5SpacePosition+2,stringSub5.length).toLowerCase();
-console.log(stringSub5Refurbished)
+/* f. Crear una variable de tipo string con al menos 2 palabras largas (10 caracteres y algún espacio entre medio).
+Utilizar los métodos de los ejercicios anteriores para generar un nuevo string que tenga la primera letra de ambas palabras en mayúscula y las demás letras en minúscula (utilizar indexOf, substring, toUpperCase, toLowerCase y el operador +).
+ */
+var string5 = "coNserVatory paLaeoNtoLogY"
+var string5SpacePosition = string5.indexOf(" ");
+var string5Refurbished = string5.substring(0,1).toUpperCase()+string5.substring(1,string5SpacePosition).toLowerCase()
++string5.substring(string5SpacePosition+1,string5SpacePosition+2).toUpperCase()
++string5.substring(string5SpacePosition+2,string5.length).toLowerCase();
+console.log(string5Refurbished);
