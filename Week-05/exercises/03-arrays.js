@@ -1,0 +1,12 @@
+var array = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+var arrayModificable = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+console.log(array[4]+" "+array[10]);
+var arrayOrdenado = arrayModificable.sort();
+array.unshift("Domingo");
+array.push("Halloween");
+array.shift();
+array.pop();
+arrayOrdenado.reverse;
+arrayModificable.join("-");
+var arrayMayoNoviembre = array.slice(4,11);
+console.log(arrayMayoNoviembre);
