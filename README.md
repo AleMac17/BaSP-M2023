@@ -17,5 +17,9 @@ In the third week, using basic CSS, we styled our HTML to practice and solidify 
 In this week, I used Flexbox to create a flexible and adaptable layout. This allowed me to easily organize the elements of the page in rows or columns, adjust their size and alignment effortlessly, and change their order if needed. With Flexbox, I achieved a responsive design that automatically adapts to different screen sizes and devices, without complications or complex layout structures. It was an effective tool for creating a modern and efficient design on my web page.
 
 [Link-page index.html](https://alemac17.github.io/BaSP-M2023/Week-04/index.html "Index")
+
+## Week 05
+I completed a JavaScript practice in which I worked with a variety of concepts, including the use of variables, strings, arrays, if-else statements, for loops, and functions. I used variables to store values and perform operations with them, strings to manipulate text, and arrays to organize data into lists. I also employed if-else statements to make decisions based on specific conditions, and for loops to iterate over arrays or perform repetitive tasks. Additionally, I implemented functions to encapsulate reusable and modular code, which allowed me to learn how to optimize and organize my code efficiently. It was a valuable practice that familiarized me with these essential JavaScript concepts and enabled me to apply them in creating functional and dynamic programs.
+
 ## Authors
 Alejandro Maciá
