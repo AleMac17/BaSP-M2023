@@ -12,7 +12,8 @@ console.log("-Exercise 5.b:");
 for(let i=0;i<array.length;i++){
     alert(array[i].charAt(0).toUpperCase()+array[i].slice(1));
 }
-/* c. Crear una variable llamada “sentence” que tenga un string vacío, luego al array del punto a) recorrerlo con un bucle for para ir guardando cada palabra dentro de la variable sentence.
+/* c. Crear una variable llamada “sentence” que tenga un string vacío, luego al array del punto a) recorrerlo con un bucle for
+para ir guardando cada palabra dentro de la variable sentence.
 Al final mostrar una única alerta con la cadena completa.
  */
 console.log("-Exercise 5.c:");
@@ -21,7 +22,6 @@ for(let i=0;i<array.length;i++){
     sentence+=array[i];
 }
 alert(sentence);
-
 /* d. Crear un array vacío y con un bucle for de 10 repeticiones. Llenar el array con el número de la repetición,
 es decir que al final de la ejecución del bucle for debería haber 10 elementos dentro del array, desde el número 0 hasta al número 9.
 Mostrar por la consola del navegador el array final (utilizar console.log).

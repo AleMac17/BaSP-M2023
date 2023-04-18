@@ -4,7 +4,7 @@ console.log("-- EXERCISE 2: STRINGS");
 console.log("-Exercise 2.a:");
 var stringToUpper = "Uncopyrightable";
 stringToUpper.toUpperCase();
-console.log(stringToUpper);
+console.log(stringToUpper.toUpperCase());
 /* b. Crear una variable de tipo string con al menos 10 caracteres y generar un nuevo string
 con los primeros 5 caracteres guardando el resultado en una nueva variable (utilizar substring).
  */

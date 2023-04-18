@@ -48,7 +48,7 @@ function sumWithValidate(a,b){
     return NaN;
   }
 }
-console.log(sumWithValidate(3,2));
+console.log(sumWithValidate(3,3));
 /* e. Convertir la validación del ejercicio 6d) en una función separada y llamarla dentro de una nueva función
 probando que todo siga funcionando igual que en el apartado anterior.
 */

@@ -5,6 +5,7 @@ y sino un alerta con el mensaje “Lower than 0,5”.
  */
 console.log("-Exercise 4.a:");
 var randomNumber = Math.random();
+console.log(randomNumber);
 if(randomNumber>=0.5){
     console.log("Greater than or equal to 0,5");
 }else{
