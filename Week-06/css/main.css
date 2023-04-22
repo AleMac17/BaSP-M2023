@@ -186,6 +186,9 @@ ul{
     background: white;
     border: 1px solid var(--color-primary-blue);
 }
+.error{
+    background:red; 
+}
 /*Section History*/
 .section-history{
     border-top:2px solid #DDE1E3;
