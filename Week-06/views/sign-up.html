@@ -11,69 +11,144 @@
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../css/sign-up.css">
     <title>Mega Rocket</title>
 </head>
-<body> 
+<body>
     <header>
-        <img src="" alt="">
+        <div class="header-bot-container">
+            <div>
+                <img src="../../assets/img/icon-hamburger.png" alt="Hamburger Icon">
+                <h1>Mega Rocket</h1>
+            </div>
+            <div>
+                <a href="https://www.instagram.com/" target="_blank"><img class="social-logo-header"
+                src="../../assets/img/icon-instagram.png" alt="Instagram Logo"></a>
+                <a href="https://www.facebook.com/" target="_blank"><img class="social-logo-header"
+                src="../../assets/img/icon-facebook.png" alt="Facebook Logo"></a>
+                <a href="https://github.com/AleMac17" target="_blank"><img class="social-logo-header"
+                src="../../assets/img/icon-github.png" alt="Github Logo"></a>
+                <a href="https://www.linkedin.com/" target="_blank"><img class="social-logo-header"
+                src="../../assets/img/icon-linkedin.png" alt="LinkedIn Logo"></a>
+                <a href="https://twitter.com/home" target="_blank"><img class="social-logo-header"
+                src="../../assets/img/icon-twitter.png" alt="Twitter Logo"></a>
+            </div>
+        </div>
     </header>
-    <div>
-        <h2>Mega Rocket</h2>
-        <h3>Sign Up</h3>
-        <form id="submitForm">
-            <div>
-                <label for="name">Name</label>
-                <input type="text" name="name" id="name" placeholder="Alfonso">
-            </div>
-            <div>
-                <input type="text" name="lastName" id="lastName" placeholder="Garcia">
-            </div>
-            <div>
-                <label for="dni">DNI</label>
-                <input type="text" name="dni" id="dni" placeholder="11324897">
-            </div>
-            <div>
-                <label for="birthdate">Birthdate</label>
-                <input type="date" name="birthdate" id="birthdate">
-            </div>
-            <div>
-                <label for="phoneNumber">Phone Number</label>
-                <input type="text" name="phoneNumber" id="phoneNumber" placeholder="+5493413380888">
-            </div>
-            <div>
-                <label for="address">Address</label>
-                <input type="text" name="address" id="address" placeholder="FalseStreet 123">
-            </div>
-            <div>
-                <label for="location">Location</label>
-                <input type="text" name="location" id="location" placeholder="Springfield">
-            </div>
-            <div>
-                <label for="postalCode">Postal Code</label>
-                <input type="text" name="postalCode" id="postalCode" placeholder="1234">
-            </div>
-            <div>
-                <label for="email">E-mail</label>
-                <input type="text" name="email" id="email" placeholder="Alfonso@hotmail.com">
-            </div>
-            <div>
-                <label for="password">Password</label>
-                <input type="password" name="password" id="password">
-            </div>
-            <div>
-                <label for="rPassword">Repeat Password</label>
-                <input type="password" name="rPassword" id="rPassword">
-            </div>
-            <div>
-                <button>Home</button>
-                <button>Sign Up</button>
-            </div>
-        </form>
-    </div>
+    <main>
+        <div class="section-title-aside">
+            <section class="section-form">
+                <h2>Mega Rocket</h2>
+                <h3>Sign Up</h3>
+                <form class="form-container" id="submitForm">
+                    <div class="form-container-data form-flex">
+                        <label for="name">Name</label>
+                        <input type="text" name="name" id="name" placeholder="Alfonso">
+                    </div>
+                    <div class="form-container-data form-flex">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" name="lastName" id="lastName" placeholder="Garcia">
+                    </div>
+                    <div class="form-container-data form-flex">
+                        <label for="dni">DNI</label>
+                        <input type="text" name="dni" id="dni" placeholder="11324897">
+                    </div>
+                    <div class="form-container-data form-flex">
+                        <label for="birthdate">Birthdate</label>
+                        <input type="date" name="birthdate" id="birthdate">
+                    </div>
+                    <div class="form-container-data form-flex">
+                        <label for="phoneNumber">Phone Number</label>
+                        <input type="text" name="phoneNumber" id="phoneNumber" placeholder="+5493413380888">
+                    </div>
+                    <div class="form-container-data form-flex">
+                        <label for="address">Address</label>
+                        <input type="text" name="address" id="address" placeholder="FalseStreet 123">
+                    </div>
+                    <div class="form-container-data form-flex">
+                        <label for="location">Location</label>
+                        <input type="text" name="location" id="location" placeholder="Springfield">
+                    </div>
+                    <div class="form-container-data form-flex">
+                        <label for="postalCode">Postal Code</label>
+                        <input type="text" name="postalCode" id="postalCode" placeholder="1234">
+                    </div>
+                    <div class="form-container-data form-flex">
+                        <label for="email">E-mail</label>
+                        <input type="text" name="email" id="email" placeholder="Alfonso@hotmail.com">
+                    </div>
+                    <div class="form-container-data form-flex">
+                        <label for="password">Password</label>
+                        <input type="password" name="password" id="password">
+                    </div>
+                    <div class="form-container-data form-flex">
+                        <label for="rPassword">Repeat Password</label>
+                        <input type="password" name="rPassword" id="rPassword">
+                    </div>
+                    <div class="form-buttons">
+                        <button>Home</button>
+                        <button type="submit">Sign Up</button>
+                    </div>
+                </form>
+            </section>
+            <aside class="display-none">
+                <div>
+                    <input type="search" name="search" id="search" placeholder="Search">
+                </div>
+                <nav>
+                    <h3>Menu</h3>
+                    <div>
+                        <a href="../views/index.html">Home</a>
+                        <a href="../views/sign-up.html">Sign Up</a>
+                        <a href="../views/login.html">Log In</a>
+                        <a href="">Contact Information</a>
+                    </div>
+                </nav>
+                <section>
+                    <h3>Contact Us</h3>
+                    <p id="aside-section-first-p">Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore.
+                    Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus aliquam.</p>
+                    <div>
+                    <img src="../../assets/img/icon-mail.png" alt="Mail Icon">
+                    <p>info.megarocket@megarocket.com</p>
+                    </div>
+                    <div id="middle-contact">
+                    <img src="../../assets/img/icon-telephone.png" alt="Telephone Icon">
+                    <p>info.megarocket@megarocket.com</p>
+                    </div>
+                    <div>
+                    <img src="../../assets/img/icon-house.png" alt="House Icon">
+                    <p>AAA xxx, Rosario, Argentina, CP 2000</p>
+                    </div>
+                </section>
+            </aside>
+        </div>
+    </main>
     <footer>
-        <span>Mega Rocket, S.A.</span>
+        <div class="footer-container-social">
+            <a href="https://www.linkedin.com/" target="_blank">
+                <img class="social-logo-footer" src="../../assets/img/icon-linkedin.png" alt="LinkedIn Logo">
+            </a>
+            <a href="https://twitter.com/home" target="_blank">
+                <img class="social-logo-footer" src="../../assets/img/icon-twitter.png" alt="Twitter Logo">
+            </a>
+            <a href="https://www.facebook.com/" target="_blank">
+                <img class="social-logo-footer" src="../../assets/img/icon-facebook.png" alt="Facebook Logo">
+            </a>
+            <a href="https://www.instagram.com/" target="_blank">
+                <img class="social-logo-footer" src="../../assets/img/icon-instagram.png" alt="Instagram Logo">
+            </a>
+            <a href="https://github.com/AleMac17" target="_blank">
+                <img class="social-logo-footer" src="../../assets/img/icon-github.png" alt="Github Logo">
+            </a>
+        </div>
+        <div class="footer-container-text">
+            <p>Rosario,Argentina.</p>
+            <p>Copyright © 2022 Radium Rocket. All rights reserved.</p>
+        </div>
     </footer>
-    <script src="../js/sign-up.js"></script>
 </body>
-
+<script src="../js/sign-up.js"></script>
 </html>
+

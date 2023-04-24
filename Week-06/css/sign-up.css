@@ -1,0 +1,8 @@
+@media (min-width: 1025px){
+.section-title-aside {
+    height: auto;
+}
+.section-title-aside aside {
+    height: 90vh;
+}
+}

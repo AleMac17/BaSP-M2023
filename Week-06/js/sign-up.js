@@ -13,49 +13,66 @@ window.addEventListener("load", function () {
     var rPasswordData = document.getElementById("rPassword");
 
     nameData.addEventListener("blur", function () {
-        validation(nameData, 3, 99, false, true);
+        validation(nameData, 3, 99, false, true,false);
     });
     nameData.addEventListener("focus", function () {
         clean(nameData);
     });
     lastNameData.addEventListener("blur", function () {
-        validation(lastNameData, 3, 99, false, true);
+        validation(lastNameData, 3, 99, false, true,false);
     });
     lastNameData.addEventListener("focus", function () {
         clean(lastNameData);
     });
+    birthdateData.addEventListener("blur",function(){
+        console.log(birthdateData.value);
+        if (birthdateData.nextSibling && birthdateData.nextSibling.nodeType === Node.ELEMENT_NODE) {
+            birthdateData.parentNode.removeChild(birthdateData.nextSibling);
+            birthdateData.style.border = "2px solid red";
+        }
+        if(birthdateData.value == ""){
+            var error = document.createElement("p");
+            error.classList.add("error");
+            error.textContent = "Error, there is no input";
+            birthdateData.style.border = "2px solid red";
+            return birthdateData.parentNode.insertBefore(error, birthdateData.nextSibling);
+        }else{
+            clean(birthdateData)
+            return true
+        }}
+    )
     dniData.addEventListener("blur", function () {
-        validation(dniData, 7, 99, true, false);
+        validation(dniData, 7, 99, true, false,false);
     });
     dniData.addEventListener("focus", function () {
         clean(dniData);
     });
     phoneNumberData.addEventListener("blur", function () {
-        validation(phoneNumberData, 9, 11, true, false);
+        validation(phoneNumberData, 9, 11, true, false,false);
     });
     phoneNumberData.addEventListener("focus", function () {
         clean(phoneNumberData);
     });
     addressData.addEventListener("blur", function () {
-        validation(addressData, 4, 99, true, true);
+        validationAddress(addressData);
     });
     addressData.addEventListener("focus", function () {
         clean(addressData);
     });
     locationData.addEventListener("blur", function () {
-        validation(locationData, 3, 99, true, true);
+        validation(locationData, 3, 99, false, false,false);
     });
     locationData.addEventListener("focus", function () {
         clean(locationData);
     });
     postalCodeData.addEventListener("blur", function () {
-        validation(postalCodeData, 3, 6, true, false);
+        validation(postalCodeData, 3, 6, true, false,false);
     });
     postalCodeData.addEventListener("focus", function () {
         clean(postalCodeData);
     });
     passwordData.addEventListener("blur", function () {
-        validation(passwordData, 7, 99, true, true);
+        validation(passwordData, 7, 99, true, true,true);
     });
     passwordData.addEventListener("focus", function () {
         clean(passwordData);
@@ -74,7 +91,8 @@ window.addEventListener("load", function () {
             validation(locationData, 3, 99, true, true) &&
             validation(postalCodeData, 3, 6, true, false) &&
             validation(passwordData, 7, 99, true, true) &&
-            passwordData.value == rPasswordData.value
+            passwordData.value == rPasswordData.value &&
+            birthdateData.value != ""
         ) {
             alert(
                 "Nombre " + nameData.value + ",Apellido " + lastNameData.value
@@ -83,73 +101,117 @@ window.addEventListener("load", function () {
             alert("Error");
         }
     }
-    function validation(input, charsMin, charsMax, number, text) {
-        /*
-    input = input
-    charsMin = cantidad de caracteres min
-    charsMax = cantidad de caracteres max
-    number = T o F si tiene numeros
-    text = T o F si tiene letras
-    */
-        console.log(input.value);
-        var inputValue = input.value;
-        var inputNumero = input.value.toString();
-        console.log(inputNumero.length);
-        if (inputValue == "") {
-            input.style.backgroundColor = "red";
-            return console.log("Error, no hay dato");
-        } else {
-            if (
-                inputNumero.length < charsMin ||
-                inputNumero.length > charsMax
-            ) {
-                input.style.backgroundColor = "red";
-                return console.log("caracteres de mas o de menos");
-            } else if (number && text) {
-                input.style.backgroundColor = "green";
-                console.log("Paso todo");
+    function emailValidation(input){
+        var error = document.createElement("p");
+        error.textContent = "The email does not have a valid format";
+        error.classList.add("error");
+        input.parentNode.removeChild(input.nextSibling);
+        var emailExpression = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
+        if(!emailExpression.test(input.value)){
+            input.parentNode.insertBefore(error, input.nextSibling);
+            input.style.border = "2px solid red";
+        }else{
+            input.style.border = "1px solid black";
+            return true
+        }
+    }
+    function clean(input) {
+        input.style.border = "1px solid black";
+    }
+    function containsNumber(input) {
+        for (var i = 0; i < input.length; i++) {
+            if (!isNaN(input.charAt(i))) {
+                continue;
+            }return true;
+        }return false;
+    }
+    function containsText(input) {
+        for (var i = 0; i < input.length; i++) {
+            if (isNaN(input.charAt(i))) {
+                continue;
+            }return true;
+        }return false;
+    }
+    function containsSpecialCharacter(input) {
+        var specialCharacters = "/[!@#$%^&*()_+\-=\[\]{};':\\|,.<>\/?]+/";
+        for (var i = 0; i < input.length; i++) {
+            if (specialCharacters.indexOf(input.charAt(i)) != -1) {
                 return true;
             }
-            if (!number || text) {
-                for (let i = 0; i < inputNumero.length; i++) {
-                    if (!isNaN(inputNumero.charAt(i))) {
-                        input.style.backgroundColor = "red";
-                        return console.log("Hay un numero en el input");
-                    }
+        }
+        return false;
+    }
+    function validation(input, charsMin, charsMax, number, text, both) {
+        var error = document.createElement("p");
+        error.classList.add("error");
+        if (input.nextSibling && input.nextSibling.nodeType === Node.ELEMENT_NODE) {
+            input.parentNode.removeChild(input.nextSibling);
+            input.style.border = "2px solid red";
+        }
+        var inputValue = input.value;
+        var inputNumber = input.value.toString();
+        if (inputValue == "") {
+            error.textContent = "Error, there is no input";
+            input.style.border = "2px solid red";
+            return input.parentNode.insertBefore(error, input.nextSibling);
+        } else if (containsSpecialCharacter(inputNumber)){
+            error.textContent = "Error, there is a special character";
+            input.style.border = "2px solid red";
+            return input.parentNode.insertBefore(error, input.nextSibling);
+        } 
+        else {
+            if (inputNumber.length < charsMin ||inputNumber.length > charsMax){
+                error.textContent = "More or less characters";
+                input.style.border = "2px solid red";
+                return input.parentNode.insertBefore(error, input.nextSibling);
+            } else if (both) {
+                if (!containsNumber(inputNumber) || !containsText(inputNumber)) {         
+                    error.textContent = "Must contain at least one letter and one number";
+                    input.style.border = "2px solid red";
+                    return input.parentNode.insertBefore(error, input.nextSibling);
                 }
-            } else if (!text || number) {
-                for (let i = 0; i < inputNumero.length; i++) {
-                    if (isNaN(inputNumero.charAt(i))) {
-                        input.style.backgroundColor = "red";
-                        return console.log("Hay una letra en el input");
-                    }
+            } else if (number) {
+                if (containsNumber(inputNumber)) {
+                    error.textContent = "Must contain only numbers";
+                    input.style.border = "2px solid red";
+                    return input.parentNode.insertBefore(error, input.nextSibling);
+                }
+            } else if (text) {
+                if (containsText(inputValue)) {
+                    error.textContent = "Must contain only letters";
+                    input.style.border = "2px solid red";
+                    return input.parentNode.insertBefore(error, input.nextSibling);
                 }
             }
         }
-        input.style.backgroundColor = "green";
+        input.style.border = "1px solid black";
         return true;
     }
-    function validationAddress(input) {
-        var response = false;
-        var inputNumero = input.value.toString();
-        if (inputNumero.indexOf(" ") != -1) {
+    /*function validationAddress(input) {
+        var response;
+        var error = document.createElement("p");
+        error.classList.add("error");
+        if (input.nextSibling && input.nextSibling.nodeType === Node.ELEMENT_NODE){
+            input.parentNode.removeChild(input.nextSibling);
+            input.style.border = "2px solid red";
+        }
+        var inputNumber = input.value.toString();
+        if (inputNumber.indexOf(" ") != -1) {
             response = true;
-            for (
-                let i = inputNumero.indexOf(" ");
-                i < inputNumero.length;
-                i++
-            ) {
-                if (isNaN(inputNumero.charAt(i))) {
-                    input.style.backgroundColor = "red";
-                    console.log("Hay una letra en el input");
+            for (var i = inputNumber.indexOf(" "); i < inputNumber.length;i++) {
+                if (isNaN(inputNumber.charAt(i))) {
+                    error.textContent = "Must contain only letters";
+                    input.style.border = "2px solid red";
+                    input.parentNode.insertBefore(error, input.nextSibling);
                     response = false;
                     return response;
                 } else {
-                    for (let o = inputNumero.indexOf(" "); o > 0; o--) {
-                        if (!isNaN(inputNumero.charAt(o))) {
-                            input.style.backgroundColor = "red";
+                    for (var o = inputNumber.indexOf(" "); o > 0; o--) {
+                        if (!isNaN(inputNumber.charAt(o))) {
+                            error.textContent = "Must contain only numbers";
+                            input.style.border = "2px solid red";
+                            input.parentNode.insertBefore(error, input.nextSibling);
                             response = false;
-                            console.log("Hay una numero en el input");
                             return response;
                         }
                     }
@@ -157,15 +219,10 @@ window.addEventListener("load", function () {
                 return response;
             }
         } else {
-            input.style.backgroundColor = "red";
-            console.log("Hay una numero en el input");
+            error.textContent = "Must contain only numbers";
+            input.style.border = "2px solid red";
+            input.parentNode.insertBefore(error, input.nextSibling);
             return response;
         }
-    }
-    function clean(input) {
-        input.style.backgroundColor = "";
-    }
-    /*
-console.log(validation("Tomate",2,10,true,true))
-console.log(validation(1231237,2,10,true,false))*/
+    }*/
 });

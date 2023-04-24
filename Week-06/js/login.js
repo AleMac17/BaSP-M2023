@@ -4,7 +4,7 @@ window.addEventListener("load", function () {
     var passwordData = document.getElementById("password");
 
     passwordData.addEventListener("blur", function () {
-        validation(passwordData, 7, 99, true, true);
+        validation(passwordData, 7, 99, true, true,true);
     });
     passwordData.addEventListener("focus", function () {
         clean(passwordData);
@@ -17,31 +17,35 @@ window.addEventListener("load", function () {
     });
     form.addEventListener("submit", submitUser);
     
-
     function submitUser(e) {
         e.preventDefault();
         if (
             emailValidation(emailData) &&
             validation(passwordData, 7, 99, true, true,true)
-        ) {
+        ){
             alert("Email " + emailData.value + ",Contraseña " + passwordData.value);
-        } else {
-            alert("Error");
+        } else if (!emailValidation(emailData)) {
+            alert("The email does not have a valid format");
+        } else if (!validation(passwordData, 7, 99, true, true,true)){
+            alert("The password is not valid");
+        } else{
+            alert("Email and password are invalid");
         }
     }
-    
-
     function emailValidation(input){
         var error = document.createElement("p");
-        error.textContent = "El email no tiene un formato válido";
+        error.textContent = "The email does not have a valid format";
         error.classList.add("error");
-        input.parentNode.removeChild(input.nextSibling);
+        if (input.nextSibling && input.nextSibling.nodeType === Node.ELEMENT_NODE) {
+            input.parentNode.removeChild(input.nextSibling);
+            input.style.border = "2px solid red";
+        }
         var emailExpression = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
         if(!emailExpression.test(input.value)){
-            alert("El email no tiene un formato valido");
             input.parentNode.insertBefore(error, input.nextSibling);
+            input.style.border = "2px solid red";
         }else{
-            console.log("Todo correcto")
+            input.style.border = "1px solid black";
             return true
         }
     }
@@ -49,16 +53,23 @@ window.addEventListener("load", function () {
         input.style.backgroundColor = "";
     }
     function containsNumber(input) {
-        for (let i = 0; i < input.length; i++) {
+        for (var i = 0; i < input.length; i++) {
             if (!isNaN(input.charAt(i))) {
-                return true;
-            }
-        }
-        return false;
+                continue;
+            }return true;
+        }return false;
     }
     function containsText(input) {
-        for (let i = 0; i < input.length; i++) {
+        for (var i = 0; i < input.length; i++) {
             if (isNaN(input.charAt(i))) {
+                continue;
+            }return true;
+        }return false;
+    }
+    function containsSpecialCharacter(input) {
+        var specialCharacters = "/[!@#$%^&*()_+\-=\[\]{};':\\|,.<>\/?]+/";
+        for (var i = 0; i < input.length; i++) {
+            if (specialCharacters.indexOf(input.charAt(i)) != -1) {
                 return true;
             }
         }
@@ -67,40 +78,47 @@ window.addEventListener("load", function () {
     function validation(input, charsMin, charsMax, number, text, both) {
         var error = document.createElement("p");
         error.classList.add("error");
-        input.parentNode.removeChild(input.nextSibling);
+        if (input.nextSibling && input.nextSibling.nodeType === Node.ELEMENT_NODE) {
+            input.parentNode.removeChild(input.nextSibling);
+            input.style.border = "2px solid red";
+        }
         var inputValue = input.value;
-        var inputNumero = input.value.toString();
+        var inputNumber = input.value.toString();
         if (inputValue == "") {
-            error.textContent = "Error, no hay dato";
+            error.textContent = "Error, there is no input";
+            input.style.border = "2px solid red";
             return input.parentNode.insertBefore(error, input.nextSibling);
-        } else {
-            if (
-                inputNumero.length < charsMin ||
-                inputNumero.length > charsMax
-            ) {
-                error.textContent = "Caracteres de mas o de menos";
+        } else if (containsSpecialCharacter(inputNumber)){
+            error.textContent = "Error, there is a special character";
+            input.style.border = "2px solid red";
+            return input.parentNode.insertBefore(error, input.nextSibling);
+        } 
+        else {
+            if (inputNumber.length < charsMin ||inputNumber.length > charsMax){
+                error.textContent = "More or less characters";
+                input.style.border = "2px solid red";
                 return input.parentNode.insertBefore(error, input.nextSibling);
             } else if (both) {
-                if (
-                    !containsNumber(inputNumero) ||
-                    !containsText(inputNumero)
-                ) {         
-                    error.textContent = "Debe contener al menos una letra y un número";
+                if (!containsNumber(inputNumber) || !containsText(inputNumber)) {         
+                    error.textContent = "Must contain at least one letter and one number";
+                    input.style.border = "2px solid red";
                     return input.parentNode.insertBefore(error, input.nextSibling);
                 }
             } else if (number) {
-                if (!containsNumber(inputNumero)) {
-                    error.textContent = "Debe contener al menos un número";
+                if (containsNumber(inputNumber)) {
+                    error.textContent = "Must contain only numbers";
+                    input.style.border = "2px solid red";
                     return input.parentNode.insertBefore(error, input.nextSibling);
                 }
             } else if (text) {
-                if (!containsText(inputNumero)) {
-                    error.textContent = "Debe contener al menos una letra";
+                if (containsText(inputValue)) {
+                    error.textContent = "Must contain only letters";
+                    input.style.border = "2px solid red";
                     return input.parentNode.insertBefore(error, input.nextSibling);
                 }
             }
         }
-        console.log("Paso todo");
+        input.style.border = "1px solid black";
         return true;
     }
 })
