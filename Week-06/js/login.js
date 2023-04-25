@@ -19,96 +19,43 @@ window.addEventListener("load", function () {
 
     function submitUser(e) {
         e.preventDefault();
-        if (
-            emailValidation(emailData) &&
-            validationPassword(passwordData)
-        ){
-            alert("Email " + emailData.value + ",Contraseña " + passwordData.value);
+        if (validationEmail(emailData) && validationPassword(passwordData)) {
+            alert(
+                "Email " + emailData.value + ",Contraseña " + passwordData.value
+            );
         } else if (!emailValidation(emailData)) {
             alert("The email does not have a valid format");
-        } else if (!validationPassword(passwordData)){
+        } else if (!validationPassword(passwordData)) {
             alert("The password is not valid");
-        } else{
+        } else {
             alert("Email and password are invalid");
         }
     }
-    function emailValidation(input){
-        var error = document.createElement("p");
-        error.textContent = "The email does not have a valid format";
-        error.classList.add("error");
-        if (input.nextSibling && input.nextSibling.nodeType === Node.ELEMENT_NODE) {
-            input.parentNode.removeChild(input.nextSibling);
-            input.classList.add("error-input");
-        }
-        var emailExpression = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
-        if(!emailExpression.test(input.value)){
-            input.parentNode.insertBefore(error, input.nextSibling);
-            input.classList.add("error-input");
-        }else{
-            input.classList.remove("error-input");
-            return true
-        }
-    }
+
     function clean(input) {
-        while(input.nextSibling && input.nextSibling.nodeType === Node.ELEMENT_NODE)
-        if (input.nextSibling && input.nextSibling.nodeType === Node.ELEMENT_NODE) {
-            input.parentNode.removeChild(input.nextSibling);
-            input.classList.add("error-input");
-        }
+        while (
+            input.nextSibling &&
+            input.nextSibling.nodeType === Node.ELEMENT_NODE
+        )
+            if (
+                input.nextSibling &&
+                input.nextSibling.nodeType === Node.ELEMENT_NODE
+            ) {
+                input.parentNode.removeChild(input.nextSibling);
+                input.classList.add("error-input");
+            }
     }
-    function noContains(input){
+    function noContains(input) {
         var inputNumber = input.value.toString();
         var error = document.createElement("p");
         error.classList.add("error");
         if (inputNumber == "") {
             error.textContent = "Error, there is no input";
-            input.classList.add("error-input")
+            input.classList.add("error-input");
             input.parentNode.insertBefore(error, input.nextSibling);
-            return false
-    }return true;}
-    function containsNumber(input) {
-        var response = false;
-        var inputNumber = input.value.toString();
-        var error = document.createElement("p");
-        error.classList.add("error");
-        for (var i = 0; i < inputNumber.length; i++) {
-            if (!isNaN(inputNumber.charAt(i))) {
-                response = true;
-                continue;
-            }else{
-                response=false;
-            }
+            return false;
         }
-        if(response==false){
-        error.textContent = "Must contain numbers";
-        input.classList.add("error-input")
-        input.parentNode.insertBefore(error, input.nextSibling);
-        return response;
-        }else{
-            return response
-        }
-    }
-    function containsText(input) {
-        var response = false;
-        var inputNumber = input.value.toString();
-        var error = document.createElement("p");
-        error.classList.add("error");
-        for (var i = 0; i < inputNumber.length; i++) {
-            if (isNaN(inputNumber.charAt(i))) {
-                response = true;
-                continue;
-            }else{
-                response=false;
-            }
-        }
-        if(response == false){
-        error.textContent = "Must contain letters";
-        input.classList.add("error-input")
-        input.parentNode.insertBefore(error, input.nextSibling);
-        return response;
-        }else{
-            return response;
-        }
+        return true;
     }
     function containsNumberAndText(input) {
         var containsNumber = false;
@@ -136,39 +83,62 @@ window.addEventListener("load", function () {
         var response = true;
         var error = document.createElement("p");
         error.classList.add("error");
-        var specialCharacters = "/[!@#$%^&*()_+\-=\[\]{};':\\|,.<>\/?]+/";
+        var specialCharacters = "/[!@#$%^&*()_+-=[]{};':\\|,.<>/?]+/";
         var inputNumber = input.value.toString();
         for (var i = 0; i < inputNumber.length; i++) {
             if (specialCharacters.indexOf(inputNumber.charAt(i)) != -1) {
                 response = true;
                 continue;
-            }else{
-                response=false;
+            } else {
+                response = false;
             }
         }
-        if(response == true){
+        if (response == true) {
             error.textContent = "Error, there is a special character";
-            input.classList.add("error-input")
+            input.classList.add("error-input");
             input.parentNode.insertBefore(error, input.nextSibling);
             return response;
-            }else{
-                return response;
-            }
+        } else {
+            return response;
+        }
     }
-    function lenghtValidator(input,charsMin,charsMax){
+    function lengthValidator(input, charsMin, charsMax) {
         var error = document.createElement("p");
         error.classList.add("error");
         var inputNumber = input.value;
-        if (inputNumber.length < charsMin || inputNumber.length > charsMax){
+        if (inputNumber.length < charsMin || inputNumber.length > charsMax) {
             error.textContent = "More or less characters";
-            input.classList.add("error-input")
+            input.classList.add("error-input");
             return input.parentNode.insertBefore(error, input.nextSibling);
-        }else{ return true;}
+        } else {
+            return true;
+        }
     }
-    function validationPassword(input){
-        if(noContains(input) && lenghtValidator(input,7,30) && !containsSpecialCharacter(input) && containsNumberAndText(input)){
+    function validationEmail(input) {
+        var error = document.createElement("p");
+        error.textContent = "The email does not have a valid format";
+        error.classList.add("error");
+        clean(input);
+        var emailExpression = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
+        if (!emailExpression.test(input.value)) {
+            input.parentNode.insertBefore(error, input.nextSibling);
+            input.classList.add("error-input");
+        } else {
             input.classList.remove("error-input");
             return true;
-            }else {return false;}
+        }
     }
-})
+    function validationPassword(input) {
+        if (
+            noContains(input) &&
+            lengthValidator(input, 7, 30) &&
+            !containsSpecialCharacter(input) &&
+            containsNumberAndText(input)
+        ) {
+            input.classList.remove("error-input");
+            return true;
+        } else {
+            return false;
+        }
+    }
+});

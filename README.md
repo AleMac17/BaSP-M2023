@@ -21,5 +21,7 @@ In this week, I used Flexbox to create a flexible and adaptable layout. This all
 ## Week 05
 I completed a JavaScript practice in which I worked with a variety of concepts, including the use of variables, strings, arrays, if-else statements, for loops, and functions. I used variables to store values and perform operations with them, strings to manipulate text, and arrays to organize data into lists. I also employed if-else statements to make decisions based on specific conditions, and for loops to iterate over arrays or perform repetitive tasks. Additionally, I implemented functions to encapsulate reusable and modular code, which allowed me to learn how to optimize and organize my code efficiently. It was a valuable practice that familiarized me with these essential JavaScript concepts and enabled me to apply them in creating functional and dynamic programs.
 
+## Week 06
+During this week, we applied JavaScript to validate a login form and a registration form, using tools such as if, for, and creating small functions that perform individual tasks. Within these validations, we also applied the use of the DOM both to retrieve the values of the inputs and to inject HTML and CSS to display errors.
 ## Authors
 Alejandro Maciá
