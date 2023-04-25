@@ -7,13 +7,13 @@ window.addEventListener("load", function () {
         validationPassword(passwordData);
     });
     passwordData.addEventListener("focus", function () {
-        clean(passwordData);
+        cleanErrors(passwordData);
     });
     emailData.addEventListener("blur", function () {
-        emailValidation(emailData);
+        validationEmail(emailData);
     });
     emailData.addEventListener("focus", function () {
-        clean(emailData);
+        cleanErrors(emailData);
     });
     form.addEventListener("submit", submitUser);
 
@@ -21,18 +21,18 @@ window.addEventListener("load", function () {
         e.preventDefault();
         if (validationEmail(emailData) && validationPassword(passwordData)) {
             alert(
-                "Email " + emailData.value + ",Contraseña " + passwordData.value
+                "Email: " + emailData.value + "\nContraseña: " + passwordData.value
             );
-        } else if (!emailValidation(emailData)) {
+        }else if(!validationEmail(emailData) && !validationPassword(passwordData)){
+            alert("Email and password are invalid");
+        } else if (!validationEmail(emailData)) {
             alert("The email does not have a valid format");
         } else if (!validationPassword(passwordData)) {
             alert("The password is not valid");
-        } else {
-            alert("Email and password are invalid");
-        }
+        } 
     }
 
-    function clean(input) {
+    function cleanErrors(input) {
         while (
             input.nextSibling &&
             input.nextSibling.nodeType === Node.ELEMENT_NODE
@@ -46,10 +46,10 @@ window.addEventListener("load", function () {
             }
     }
     function noContains(input) {
-        var inputNumber = input.value.toString();
+        var inputValue = input.value.toString();
         var error = document.createElement("p");
         error.classList.add("error");
-        if (inputNumber == "") {
+        if (inputValue == "") {
             error.textContent = "Error, there is no input";
             input.classList.add("error-input");
             input.parentNode.insertBefore(error, input.nextSibling);
@@ -84,9 +84,9 @@ window.addEventListener("load", function () {
         var error = document.createElement("p");
         error.classList.add("error");
         var specialCharacters = "/[!@#$%^&*()_+-=[]{};':\\|,.<>/?]+/";
-        var inputNumber = input.value.toString();
-        for (var i = 0; i < inputNumber.length; i++) {
-            if (specialCharacters.indexOf(inputNumber.charAt(i)) != -1) {
+        var inputValue = input.value.toString();
+        for (var i = 0; i < inputValue.length; i++) {
+            if (specialCharacters.indexOf(inputValue.charAt(i)) != -1) {
                 response = true;
                 continue;
             } else {
@@ -105,8 +105,8 @@ window.addEventListener("load", function () {
     function lengthValidator(input, charsMin, charsMax) {
         var error = document.createElement("p");
         error.classList.add("error");
-        var inputNumber = input.value;
-        if (inputNumber.length < charsMin || inputNumber.length > charsMax) {
+        var inputValue = input.value;
+        if (inputValue.length < charsMin || inputValue.length > charsMax) {
             error.textContent = "More or less characters";
             input.classList.add("error-input");
             return input.parentNode.insertBefore(error, input.nextSibling);
@@ -118,7 +118,7 @@ window.addEventListener("load", function () {
         var error = document.createElement("p");
         error.textContent = "The email does not have a valid format";
         error.classList.add("error");
-        clean(input);
+        cleanErrors(input);
         var emailExpression = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
         if (!emailExpression.test(input.value)) {
             input.parentNode.insertBefore(error, input.nextSibling);
@@ -129,6 +129,7 @@ window.addEventListener("load", function () {
         }
     }
     function validationPassword(input) {
+        cleanErrors(input);
         if (
             noContains(input) &&
             lengthValidator(input, 7, 30) &&
