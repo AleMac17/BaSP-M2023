@@ -143,6 +143,9 @@ ul{
     flex-direction: column;
     font:var(--font-component-title)
 }
+.form-container-data{
+    height: 15vh;
+}
 .form-container-data input{
     padding: 10px 12px;
     border: 1px solid #373867;
@@ -188,6 +191,9 @@ ul{
 }
 .error{
     color:red; 
+}
+.error-input{
+    border: 2px solid red;
 }
 /*Section History*/
 .section-history{

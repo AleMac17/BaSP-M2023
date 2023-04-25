@@ -13,42 +13,31 @@ window.addEventListener("load", function () {
     var rPasswordData = document.getElementById("rPassword");
 
     nameData.addEventListener("blur", function () {
-        validation(nameData, 3, 99, false, true,false);
+        validationNameData(nameData);
     });
     nameData.addEventListener("focus", function () {
         clean(nameData);
     });
     lastNameData.addEventListener("blur", function () {
-        validation(lastNameData, 3, 99, false, true,false);
+        validationNameData(lastNameData);
     });
     lastNameData.addEventListener("focus", function () {
         clean(lastNameData);
     });
     birthdateData.addEventListener("blur",function(){
-        console.log(birthdateData.value);
-        if (birthdateData.nextSibling && birthdateData.nextSibling.nodeType === Node.ELEMENT_NODE) {
-            birthdateData.parentNode.removeChild(birthdateData.nextSibling);
-            birthdateData.style.border = "2px solid red";
-        }
-        if(birthdateData.value == ""){
-            var error = document.createElement("p");
-            error.classList.add("error");
-            error.textContent = "Error, there is no input";
-            birthdateData.style.border = "2px solid red";
-            return birthdateData.parentNode.insertBefore(error, birthdateData.nextSibling);
-        }else{
-            clean(birthdateData)
-            return true
-        }}
-    )
+        validationBirthdate(birthdateData);
+    });
+    birthdateData.addEventListener("focus",function(){
+        clean(birthdateData)
+    })
     dniData.addEventListener("blur", function () {
-        validation(dniData, 7, 99, true, false,false);
+        validationDni(dniData);
     });
     dniData.addEventListener("focus", function () {
         clean(dniData);
     });
     phoneNumberData.addEventListener("blur", function () {
-        validation(phoneNumberData, 9, 11, true, false,false);
+        validationPhoneNumber(phoneNumberData);
     });
     phoneNumberData.addEventListener("focus", function () {
         clean(phoneNumberData);
@@ -60,22 +49,34 @@ window.addEventListener("load", function () {
         clean(addressData);
     });
     locationData.addEventListener("blur", function () {
-        validation(locationData, 3, 99, false, false,false);
+        validationLocation(locationData);
     });
     locationData.addEventListener("focus", function () {
         clean(locationData);
     });
     postalCodeData.addEventListener("blur", function () {
-        validation(postalCodeData, 3, 6, true, false,false);
+        validationPostalCode(postalCodeData);
     });
     postalCodeData.addEventListener("focus", function () {
         clean(postalCodeData);
     });
     passwordData.addEventListener("blur", function () {
-        validation(passwordData, 7, 99, true, true,true);
+        validationPassword(passwordData);
     });
     passwordData.addEventListener("focus", function () {
         clean(passwordData);
+    });
+    rPasswordData.addEventListener("blur",function(){
+        validationRPassword(rPasswordData);
+    })
+    rPasswordData.addEventListener("focus",function(){
+        clean(rPasswordData);
+    })
+    emailData.addEventListener("blur",function(){
+        validationEmail(emailData);
+    })
+    emailData.addEventListener("focus", function () {
+        clean(emailData);
     });
 
     form.addEventListener("submit", submitUser);
@@ -83,25 +84,193 @@ window.addEventListener("load", function () {
     function submitUser(e) {
         e.preventDefault();
         if (
-            validation(nameData, 3, 99, false, true) &&
-            validation(lastNameData, 3, 99, false, true) &&
-            validation(dniData, 7, 99, true, false) &&
-            validation(phoneNumberData, 9, 11, true, false) &&
-            validation(addressData, 4, 99, true, true) &&
-            validation(locationData, 3, 99, true, true) &&
-            validation(postalCodeData, 3, 6, true, false) &&
-            validation(passwordData, 7, 99, true, true) &&
-            passwordData.value == rPasswordData.value &&
-            birthdateData.value != ""
-        ) {
+            validationNameData(nameData) &&
+            validationNameData(lastNameData) &&
+            validationDni(dniData) &&
+            validationPhoneNumber(phoneNumberData) &&
+            validationAddress(addressData) &&
+            validationLocation(locationData) &&
+            validationEmail(emailData) &&
+            validationPostalCode(postalCodeData) &&
+            validationPassword(passwordData) &&
+            passwordData.value === rPasswordData.value
+        ){
             alert(
-                "Nombre " + nameData.value + ",Apellido " + lastNameData.value
+                "Nombre " + nameData.value + ",Apellido " + lastNameData.value + ",DNI " + dniData.value + ",Birthdate " + birthdateData.value + ",Phone number  " + phoneNumberData.value + ",Address " + addressData.value + ",Location " + locationData.value + ",Postal Code " + postalCodeData.value+ ",E-mail " + emailData.value + ",Password " + passwordData.value + ",RePassword " + rPasswordData.value
             );
         } else {
             alert("Error");
         }
     }
-    function emailValidation(input){
+    function clean(input) {
+        while(input.nextSibling && input.nextSibling.nodeType === Node.ELEMENT_NODE)
+        if (input.nextSibling && input.nextSibling.nodeType === Node.ELEMENT_NODE) {
+            input.parentNode.removeChild(input.nextSibling);
+            input.classList.add("error-input");
+        }
+    }
+    function noContains(input){
+        var inputNumber = input.value.toString();
+        var error = document.createElement("p");
+        error.classList.add("error");
+        if (inputNumber == "") {
+            error.textContent = "Error, there is no input";
+            input.classList.add("error-input")
+            input.parentNode.insertBefore(error, input.nextSibling);
+            return false
+    }return true;}
+    function containsNumber(input) {
+        var response = false;
+        var inputNumber = input.value.toString();
+        var error = document.createElement("p");
+        error.classList.add("error");
+        for (var i = 0; i < inputNumber.length; i++) {
+            if (!isNaN(inputNumber.charAt(i))) {
+                response = true;
+                continue;
+            }else{
+                response=false;
+            }
+        }
+        if(response==false){
+            error.textContent = "Must contain numbers";
+            input.classList.add("error-input")
+            input.parentNode.insertBefore(error, input.nextSibling);
+            return response;
+        }else{
+            return response
+        }
+    }
+    function containsText(input) {
+        var response = false;
+        var inputNumber = input.value.toString();
+        var error = document.createElement("p");
+        error.classList.add("error");
+        for (var i = 0; i < inputNumber.length; i++) {
+            if (isNaN(inputNumber.charAt(i))) {
+                response = true;
+                continue;
+            }else{
+                response=false;
+            }
+        }
+        if(response == false){
+        error.textContent = "Must contain letters";
+        input.classList.add("error-input")
+        input.parentNode.insertBefore(error, input.nextSibling);
+        return response;
+        }else{
+            return response;
+        }
+    }
+    function containsNumberAndText(input) {
+        var containsNumber = false;
+        var containsText = false;
+        var inputString = input.value.toString();
+        var error = document.createElement("p");
+        error.classList.add("error");
+        for (var i = 0; i < inputString.length; i++) {
+            if (!isNaN(inputString.charAt(i))) {
+                containsNumber = true;
+            } else {
+                containsText = true;
+            }
+        }
+        if (!containsNumber || !containsText) {
+            error.textContent = "Must contain numbers and letters";
+            input.classList.add("error-input");
+            input.parentNode.insertBefore(error, input.nextSibling);
+            return false;
+        } else {
+            return true;
+        }
+    }
+    function containsSpecialCharacter(input) {
+        var response = true;
+        var error = document.createElement("p");
+        error.classList.add("error");
+        var specialCharacters = "/[!@#$%^&*()_+\-=\[\]{};':\\|,.<>\/?]+/";
+        var inputNumber = input.value.toString();
+        for (var i = 0; i < inputNumber.length; i++) {
+            if (specialCharacters.indexOf(inputNumber.charAt(i)) != -1) {
+                response = true;
+                continue;
+            }else{
+                response=false;
+            }
+        }
+        if(response == true){
+            error.textContent = "Error, there is a special character";
+            input.classList.add("error-input")
+            input.parentNode.insertBefore(error, input.nextSibling);
+            return response;
+            }else{
+                return response;
+            }
+    }
+    function lenghtValidator(input,charsMin,charsMax){
+        var error = document.createElement("p");
+        error.classList.add("error");
+        var inputNumber = input.value;
+        if (inputNumber.length < charsMin || inputNumber.length > charsMax){
+            error.textContent = "More or less characters";
+            input.classList.add("error-input")
+            return input.parentNode.insertBefore(error, input.nextSibling);
+        }else{ return true;}
+    }
+    function validationNameData(input){
+        if(noContains(input) && lenghtValidator(input,3,30) && containsText(input) && !containsSpecialCharacter(input)){
+            input.classList.remove("error-input");
+            return true;
+        }else {return false;}
+    }
+    function validationDni(input){
+        if(noContains(input) && lenghtValidator(input,3,30) && containsNumber(input) && !containsSpecialCharacter(input)){
+            input.classList.remove("error-input");
+            return true;
+        } else {return false;}
+    }
+    function validationPhoneNumber(input){
+        if(noContains(input) && lenghtValidator(input,9,11) && containsNumber(input) && !containsSpecialCharacter(input)){
+            input.classList.remove("error-input");
+            return true;
+            }else {return false;}
+    }
+    function validationLocation(input){
+        if(noContains(input) && lenghtValidator(input,3,30) && !containsSpecialCharacter(input)){
+            input.classList.remove("error-input");
+            return true;
+            }else {return false;}
+    }
+    function validationPostalCode(input){
+        if(noContains(input) && lenghtValidator(input,3,6) && containsNumber(input) && !containsSpecialCharacter(input)){
+            input.classList.remove("error-input");
+            return true;
+            }else {return false;}
+    }
+    function validationPassword(input){
+        if(noContains(input) && lenghtValidator(input,7,30) && !containsSpecialCharacter(input) && containsNumberAndText(input)){
+            input.classList.remove("error-input");
+            return true;
+            }else {return false;}
+    }
+    function validationRPassword(input){
+        if(noContains(input) && input.value!=passwordData.value){
+            if(input.value==passwordData.value){
+                input.classList.remove("error-input");
+                return true;
+            }else{
+                input.classList.remove("error-input");
+                var error = document.createElement("p");
+                error.classList.add("error");
+                error.textContent = "Is not the same password";
+                input.classList.add("error-input")
+                input.parentNode.insertBefore(error, input.nextSibling);
+                return false;
+            }
+            }else {return false;}
+        }
+    function validationEmail(input){
         var error = document.createElement("p");
         error.textContent = "The email does not have a valid format";
         error.classList.add("error");
@@ -109,120 +278,44 @@ window.addEventListener("load", function () {
         var emailExpression = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
         if(!emailExpression.test(input.value)){
             input.parentNode.insertBefore(error, input.nextSibling);
-            input.style.border = "2px solid red";
+            input.classList.add("error-input")
         }else{
-            input.style.border = "1px solid black";
+            input.classList.remove("error-input")
             return true
         }
     }
-    function clean(input) {
-        input.style.border = "1px solid black";
-    }
-    function containsNumber(input) {
-        for (var i = 0; i < input.length; i++) {
-            if (!isNaN(input.charAt(i))) {
-                continue;
-            }return true;
-        }return false;
-    }
-    function containsText(input) {
-        for (var i = 0; i < input.length; i++) {
-            if (isNaN(input.charAt(i))) {
-                continue;
-            }return true;
-        }return false;
-    }
-    function containsSpecialCharacter(input) {
-        var specialCharacters = "/[!@#$%^&*()_+\-=\[\]{};':\\|,.<>\/?]+/";
-        for (var i = 0; i < input.length; i++) {
-            if (specialCharacters.indexOf(input.charAt(i)) != -1) {
-                return true;
-            }
-        }
-        return false;
-    }
-    function validation(input, charsMin, charsMax, number, text, both) {
-        var error = document.createElement("p");
-        error.classList.add("error");
+    function validationBirthdate(input){
+        console.log(input.value.toString());
         if (input.nextSibling && input.nextSibling.nodeType === Node.ELEMENT_NODE) {
             input.parentNode.removeChild(input.nextSibling);
-            input.style.border = "2px solid red";
+            clean(input);
         }
-        var inputValue = input.value;
-        var inputNumber = input.value.toString();
-        if (inputValue == "") {
-            error.textContent = "Error, there is no input";
-            input.style.border = "2px solid red";
-            return input.parentNode.insertBefore(error, input.nextSibling);
-        } else if (containsSpecialCharacter(inputNumber)){
-            error.textContent = "Error, there is a special character";
-            input.style.border = "2px solid red";
-            return input.parentNode.insertBefore(error, input.nextSibling);
-        } 
-        else {
-            if (inputNumber.length < charsMin ||inputNumber.length > charsMax){
-                error.textContent = "More or less characters";
-                input.style.border = "2px solid red";
-                return input.parentNode.insertBefore(error, input.nextSibling);
-            } else if (both) {
-                if (!containsNumber(inputNumber) || !containsText(inputNumber)) {         
-                    error.textContent = "Must contain at least one letter and one number";
-                    input.style.border = "2px solid red";
-                    return input.parentNode.insertBefore(error, input.nextSibling);
-                }
-            } else if (number) {
-                if (containsNumber(inputNumber)) {
-                    error.textContent = "Must contain only numbers";
-                    input.style.border = "2px solid red";
-                    return input.parentNode.insertBefore(error, input.nextSibling);
-                }
-            } else if (text) {
-                if (containsText(inputValue)) {
-                    error.textContent = "Must contain only letters";
-                    input.style.border = "2px solid red";
-                    return input.parentNode.insertBefore(error, input.nextSibling);
-                }
-            }
+        if(!noContains(input)){
+            return true;
+        }else{
+            clean(input)
+            return false;
         }
-        input.style.border = "1px solid black";
-        return true;
     }
-    /*function validationAddress(input) {
-        var response;
-        var error = document.createElement("p");
-        error.classList.add("error");
-        if (input.nextSibling && input.nextSibling.nodeType === Node.ELEMENT_NODE){
-            input.parentNode.removeChild(input.nextSibling);
-            input.style.border = "2px solid red";
-        }
-        var inputNumber = input.value.toString();
-        if (inputNumber.indexOf(" ") != -1) {
-            response = true;
-            for (var i = inputNumber.indexOf(" "); i < inputNumber.length;i++) {
-                if (isNaN(inputNumber.charAt(i))) {
-                    error.textContent = "Must contain only letters";
-                    input.style.border = "2px solid red";
-                    input.parentNode.insertBefore(error, input.nextSibling);
-                    response = false;
-                    return response;
-                } else {
-                    for (var o = inputNumber.indexOf(" "); o > 0; o--) {
-                        if (!isNaN(inputNumber.charAt(o))) {
-                            error.textContent = "Must contain only numbers";
-                            input.style.border = "2px solid red";
-                            input.parentNode.insertBefore(error, input.nextSibling);
-                            response = false;
-                            return response;
-                        }
-                    }
-                }
-                return response;
-            }
-        } else {
-            error.textContent = "Must contain only numbers";
-            input.style.border = "2px solid red";
-            input.parentNode.insertBefore(error, input.nextSibling);
-            return response;
-        }
-    }*/
+    function validationAddress(input){
+        var spaceUbication = input.value.indexOf(" ")
+        var beforeSpace;
+        var afterSpace;
+        if(noContains(input) && lenghtValidator(input,4,30) && !containsSpecialCharacter(input)){
+            if (spaceUbication != -1){
+                beforeSpace = input.value.substring(0, spaceUbication);
+                afterSpace = input.value.substring(spaceUbication+1, input.value.length);
+            if(isNaN(input.value.charAt(0))){
+                if(containsText(beforeSpace) && containsNumber(afterSpace)){
+                    input.classList.remove("error-input");
+                    return true;
+                }else{return false;}
+            }else if(containsText(afterSpace) && containsNumber(beforeSpace)){
+                    input.classList.remove("error-input");
+                    return true;
+            }else{return false;}
+            }else {return false;}
+    }
+}
 });
+
