@@ -81,6 +81,7 @@ window.addEventListener("load", function () {
 
     form.addEventListener("submit", submitUser);
     function submitUser(e) {
+        var errors = [];
         e.preventDefault();
         validationNameData(nameData);
         validationNameData(lastNameData);
@@ -93,45 +94,66 @@ window.addEventListener("load", function () {
         validationPassword(passwordData);
         validationBirthdate(birthdateData);
         validationRPassword(rPasswordData);
-        if (
-            !validationNameData(nameData) ||
-            !validationNameData(lastNameData) ||
-            !validationDni(dniData) ||
-            !validationPhoneNumber(phoneNumberData) ||
-            !validationAddress(addressData) ||
-            !validationLocation(locationData) ||
-            !validationEmail(emailData) ||
-            !validationPostalCode(postalCodeData) ||
-            !validationPassword(passwordData) ||
-            !validationBirthdate(birthdateData) ||
-            passwordData.value != rPasswordData.value
-        ) {
-            alert("Error");
-        } else {
+        if (!validationNameData(nameData)) {
+            errors.push("\nName is not valid");
+        }
+        if (!validationNameData(lastNameData)) {
+            errors.push("\nLastName is not valid");
+        }
+        if (!validationDni(dniData)) {
+            errors.push("\nDNI is not valid");
+        }
+        if (!validationPhoneNumber(phoneNumberData)) {
+            errors.push("\nPhoneNumber is not valid");
+        }
+        if (!validationAddress(addressData)) {
+            errors.push("\nAddress is not valid");
+        }
+        if (!validationLocation(locationData)) {
+            errors.push("\nLocation is not valid");
+        }
+        if (!validationEmail(emailData)) {
+            errors.push("\nEmail is not valid");
+        }
+        if (!validationPostalCode(postalCodeData)) {
+            errors.push("\nPostal Code is not valid");
+        }
+        if (!validationPassword(passwordData)) {
+            errors.push("\nPassword is not valid");
+        }
+        if (!validationRPassword(rPasswordData)) {
+            errors.push("\nRepeat Password is not valid");
+        }
+        if (!validationBirthdate(birthdateData)) {
+            errors.push("\nBirthdate is not valid");
+        }
+        if (!errors.length) {
             alert(
-                "Nombre: " +
-                    nameData.value +
-                    "\nApellido: " +
-                    lastNameData.value +
-                    "\nDNI: " +
-                    dniData.value +
-                    "\nBirthdate: " +
-                    changeDateFormat(birthdateData.value) +
-                    "\nPhone number:  " +
-                    phoneNumberData.value +
-                    "\nAddress: " +
-                    addressData.value +
-                    "\nLocation: " +
-                    locationData.value +
-                    "\nPostal Code: " +
-                    postalCodeData.value +
-                    "\nE-mail: " +
-                    emailData.value +
-                    "\nPassword: " +
-                    passwordData.value +
-                    "\nRePassword: " +
-                    rPasswordData.value
+                "Name: " +
+                nameData.value +
+                "\nLastName: " +
+                lastNameData.value +
+                "\nDNI: " +
+                dniData.value +
+                "\nBirthdate: " +
+                changeDateFormat(birthdateData.value) +
+                "\nPhone number:  " +
+                phoneNumberData.value +
+                "\nAddress: " +
+                addressData.value +
+                "\nLocation: " +
+                locationData.value +
+                "\nPostal Code: " +
+                postalCodeData.value +
+                "\nE-mail: " +
+                emailData.value +
+                "\nPassword: " +
+                passwordData.value +
+                "\nRePassword: " +
+                rPasswordData.value
             );
+        } else {
+            alert(errors);
         }
     }
     function changeDateFormat(date) {

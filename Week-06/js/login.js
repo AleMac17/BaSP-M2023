@@ -21,7 +21,7 @@ window.addEventListener("load", function () {
         e.preventDefault();
         if (validationEmail(emailData) && validationPassword(passwordData)) {
             alert(
-                "Email: " + emailData.value + "\nContraseña: " + passwordData.value
+                "Email: " + emailData.value + "\nPassword: " + passwordData.value
             );
         }else if(!validationEmail(emailData) && !validationPassword(passwordData)){
             alert("Email and password are invalid");
@@ -31,7 +31,6 @@ window.addEventListener("load", function () {
             alert("The password is not valid");
         } 
     }
-
     function cleanErrors(input) {
         while (
             input.nextSibling &&
