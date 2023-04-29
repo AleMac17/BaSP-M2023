@@ -1,0 +1,39 @@
+.section-form {
+    border-top: 0px;
+    margin: 0 auto;
+    align-self: center;
+    text-align: center;
+}
+.form-flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font: var(--font-component-title);
+}
+.form-buttons {
+    display: flex;
+    flex-direction: column;
+    margin: 3vh 0;
+    gap: 3vh;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (min-width: 601px) and (max-width: 1024px){
+.form-buttons {
+    gap: 4vw;
+    flex-direction: row;
+    }
+}
+@media (min-width: 1025px){
+.form-container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    gap: 3vh;
+    }  
+.form-buttons {
+    flex-direction: row;
+    }    
+}

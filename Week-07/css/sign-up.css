@@ -1,0 +1,26 @@
+@media(min-width:601px) and (max-width:1024px){
+    .form-container-data input {
+        width: 50vw;
+    }
+}
+
+@media (min-width: 1025px){
+.section-title-aside {
+    height: auto;
+}
+.section-title-aside aside {
+    height: 90vh;
+}
+.form-container {
+    display: flex;
+    flex-direction: row;
+    gap: 3vh;
+    flex-wrap: wrap;
+    align-content: space-around;
+    justify-content: center;
+    align-items: center;
+}
+.form-container-data input {
+    width: 26vw;
+}
+}
