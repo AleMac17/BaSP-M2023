@@ -3,6 +3,7 @@ window.addEventListener("load", function () {
     var form = document.getElementById("submitForm");
     var emailData = document.getElementById("email");
     var passwordData = document.getElementById("password");
+    var url = "https://api-rest-server.vercel.app/login";
 
     passwordData.addEventListener("blur", function () {
         validationPassword(passwordData);
@@ -19,24 +20,43 @@ window.addEventListener("load", function () {
     form.addEventListener("submit", submitUser);
 
     function submitUser(e) {
+        var msg;
         e.preventDefault();
+        utils.fetchGet(queryData()).then((response) => {
+            if (response.msg == undefined) {
+                for (var i = 0; i < response.errors.length; i++) {
+                    msg +=
+                        "\nThe " +
+                        response.errors[i].param +
+                        ": " +
+                        response.errors[i].value +
+                        "\nHas the following error: " +
+                        response.errors[i].msg;
+                }
+            } else {
+                msg = response.msg;
+            }
+            alert("Login: " + response.success + "\n" + msg);
+            });
         if (validationEmail(emailData) && validationPassword(passwordData)) {
             alert(
-                "Email: " +
-                    emailData.value +
-                    "\nPassword: " +
-                    passwordData.value
+                "Email: " + emailData.value + "\nPassword: " + passwordData.value
             );
-        } else if (
-            !validationEmail(emailData) &&
-            !validationPassword(passwordData)
-        ) {
+        }else if(!validationEmail(emailData) && !validationPassword(passwordData)){
             alert("Email and password are invalid");
         } else if (!validationEmail(emailData)) {
             alert("The email does not have a valid format");
         } else if (!validationPassword(passwordData)) {
             alert("The password is not valid");
         }
+    }
+    function queryData(){
+        var params= new URLSearchParams({
+            email:emailData.value,
+            password:passwordData.value
+        })
+        var requestUrl = url+"?"+params.toString();
+        return requestUrl
     }
     function validationEmail(input) {
         var error = document.createElement("p");

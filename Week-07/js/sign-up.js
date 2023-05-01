@@ -12,6 +12,7 @@ window.addEventListener("load", function () {
     var emailData = document.getElementById("email");
     var passwordData = document.getElementById("password");
     var repeatPasswordData = document.getElementById("repeatPassword");
+    var url = "https://api-rest-server.vercel.app/signup";
 
     nameData.addEventListener("blur", function () {
         validationNameData(nameData);
@@ -84,6 +85,23 @@ window.addEventListener("load", function () {
     function submitUser(e) {
         var errors = [];
         e.preventDefault();
+        var msg;
+        utils.fetchGet(queryData()).then((response) => {
+        if (response.msg == undefined) {
+            for (var i = 0; i < response.errors.length; i++) {
+                msg +=
+                    "\nThe " +
+                    response.errors[i].param +
+                    ": " +
+                    response.errors[i].value +
+                    "\nHas the following error: " +
+                    response.errors[i].msg;
+            }
+        } else {
+            msg = response.msg;
+        }
+        alert("Login: " + response.success + "\n" + msg);
+        });
         validationNameData(nameData);
         validationNameData(lastNameData);
         validationDni(dniData);
@@ -129,33 +147,69 @@ window.addEventListener("load", function () {
             errors.push("\nBirthdate is not valid");
         }
         if (!errors.length) {
+            createLocalUser();
             alert(
                 "Name: " +
-                nameData.value +
-                "\nLastName: " +
-                lastNameData.value +
-                "\nDNI: " +
-                dniData.value +
-                "\nBirthdate: " +
-                changeDateFormat(birthdateData.value) +
-                "\nPhone number:  " +
-                phoneNumberData.value +
-                "\nAddress: " +
-                addressData.value +
-                "\nLocation: " +
-                locationData.value +
-                "\nPostal Code: " +
-                postalCodeData.value +
-                "\nE-mail: " +
-                emailData.value +
-                "\nPassword: " +
-                passwordData.value +
-                "\nRePassword: " +
-                repeatPasswordData.value
+                    nameData.value +
+                    "\nLastName: " +
+                    lastNameData.value +
+                    "\nDNI: " +
+                    dniData.value +
+                    "\nBirthdate: " +
+                    utils.changeDateFormat(birthdateData.value) +
+                    "\nPhone number:  " +
+                    phoneNumberData.value +
+                    "\nAddress: " +
+                    addressData.value +
+                    "\nLocation: " +
+                    locationData.value +
+                    "\nPostal Code: " +
+                    postalCodeData.value +
+                    "\nE-mail: " +
+                    emailData.value +
+                    "\nPassword: " +
+                    passwordData.value +
+                    "\nRePassword: " +
+                    rPasswordData.value
             );
         } else {
             alert(errors);
         }
+    }
+    function queryData() {
+        var name = encodeURIComponent(nameData.value);
+        var lastName = encodeURIComponent(lastNameData.value);
+        var dni = encodeURIComponent(dniData.value);
+        var phone = encodeURIComponent(phoneNumberData.value);
+        var address = encodeURIComponent(addressData.value);
+        var city = encodeURIComponent(locationData.value);
+        var email = encodeURIComponent(emailData.value);
+        var zip = encodeURIComponent(postalCodeData.value);
+        var password = encodeURIComponent(passwordData.value);
+        var dob = encodeURIComponent(utils.changeDateFormat(birthdateData.value));
+        var params =
+            "name=" +
+            name +
+            "&lastName=" +
+            lastName +
+            "&dni=" +
+            dni +
+            "&phone=" +
+            phone +
+            "&address=" +
+            address +
+            "&city=" +
+            city +
+            "&email=" +
+            email +
+            "&zip=" +
+            zip +
+            "&password=" +
+            password +
+            "&dob=" +
+            dob;
+        var requestUrl = url + "?" + params;
+        return requestUrl;
     }
     function validationNameData(input) {
         utils.cleanErrors(input);

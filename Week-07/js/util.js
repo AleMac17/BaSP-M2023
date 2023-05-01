@@ -116,3 +116,17 @@ export function lengthValidator(input, charsMin, charsMax) {
         return true;
     }
 }
+export function fetchGet(url) {
+    return fetch(url)
+        .then(function (response) {
+            if(response.ok){
+            return response.json();
+            }else{throw new Error(response.status)}
+        })
+        .then(function (jsonData) {
+            return jsonData;
+        })
+        .catch(function (error) {
+            alert(error);
+        });
+}
