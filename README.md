@@ -23,5 +23,8 @@ I completed a JavaScript practice in which I worked with a variety of concepts, 
 
 ## Week 06
 During this week, we applied JavaScript to validate a login form and a registration form, using tools such as if, for, and creating small functions that perform individual tasks. Within these validations, we also applied the use of the DOM both to retrieve the values of the inputs and to inject HTML and CSS to display errors.
+
+## Week 07
+This week we applied data validation to an endpoint using fetch and asynchronous promises, sending the input information through the URL using query params. We also added the ability to save data in local memory with localStorage, thus allowing the client to save time when entering previously validated data.
 ## Authors
 Alejandro Maciá
