@@ -359,4 +359,17 @@ window.addEventListener("load", function () {
             return false;
         }
     }
+    function createLocalUser() {
+        localStorage.setItem("email", emailData.value);
+        localStorage.setItem("name", nameData.value);
+        localStorage.setItem("lastName", lastNameData.value);
+        localStorage.setItem("dni", dniData.value);
+        localStorage.setItem("phone", phoneNumberData.value);
+        localStorage.setItem("address", addressData.value);
+        localStorage.setItem("city", locationData.value);
+        localStorage.setItem("zip", postalCodeData.value);
+        localStorage.setItem("password", passwordData.value);
+        localStorage.setItem("rpassword", rPasswordData.value);
+        localStorage.setItem("dob", birthdateData.value);
+    }
 });
