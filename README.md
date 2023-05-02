@@ -26,5 +26,6 @@ During this week, we applied JavaScript to validate a login form and a registrat
 
 ## Week 07
 This week we applied data validation to an endpoint using fetch and asynchronous promises, sending the input information through the URL using query params. We also added the ability to save data in local memory with localStorage, thus allowing the client to save time when entering previously validated data.
+
 ## Authors
 Alejandro Maciá

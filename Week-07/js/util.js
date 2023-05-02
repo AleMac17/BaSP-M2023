@@ -1,8 +1,8 @@
 export function changeDateFormat(date) {
     var dateParts = date.split("-");
-    var day = dateParts[0];
+    var day = dateParts[2];
     var month = dateParts[1];
-    var year = dateParts[2];
+    var year = dateParts[0];
     var newDate = month + "/" + day + "/" + year;
     return newDate;
 }
@@ -24,7 +24,8 @@ export function noContains(input) {
     var error = document.createElement("p");
     error.classList.add("error");
     if (inputValue == "") {
-        error.textContent = input.previousElementSibling.textContent+" is required";
+        error.textContent =
+            input.previousElementSibling.textContent + " is required";
         input.classList.add("error-input");
         input.parentNode.insertBefore(error, input.nextSibling);
         return false;
@@ -37,7 +38,9 @@ export function containsNumber(input) {
     error.classList.add("error");
     for (var i = 0; i < inputValue.length; i++) {
         if (isNaN(inputValue.charAt(i))) {
-            error.textContent = input.previousElementSibling.textContent+" Must only contain numbers";
+            error.textContent =
+                input.previousElementSibling.textContent +
+                " Must only contain numbers";
             input.classList.add("error-input");
             input.parentNode.insertBefore(error, input.nextSibling);
             return false;
@@ -51,7 +54,9 @@ export function containsText(input) {
     error.classList.add("error");
     for (var i = 0; i < inputValue.length; i++) {
         if (!isNaN(inputValue.charAt(i))) {
-            error.textContent = input.previousElementSibling.textContent+" Must only contain letters";
+            error.textContent =
+                input.previousElementSibling.textContent +
+                " Must only contain letters";
             input.classList.add("error-input");
             input.parentNode.insertBefore(error, input.nextSibling);
             return false;
@@ -73,7 +78,9 @@ export function containsNumberAndText(input) {
         }
     }
     if (!containsNumber || !containsText) {
-        error.textContent = input.previousElementSibling.textContent+" Must contain numbers and letters";
+        error.textContent =
+            input.previousElementSibling.textContent +
+            " Must contain numbers and letters";
         input.classList.add("error-input");
         input.parentNode.insertBefore(error, input.nextSibling);
         return false;
@@ -96,7 +103,9 @@ export function containsSpecialCharacter(input) {
         }
     }
     if (response == true) {
-        error.textContent = input.previousElementSibling.textContent+ "does not accept special character";
+        error.textContent =
+            input.previousElementSibling.textContent +
+            "does not accept special character";
         input.classList.add("error-input");
         input.parentNode.insertBefore(error, input.nextSibling);
         return response;
@@ -109,24 +118,25 @@ export function lengthValidator(input, charsMin, charsMax) {
     error.classList.add("error");
     var inputValue = input.value;
     if (inputValue.length < charsMin || inputValue.length > charsMax) {
-        error.textContent = input.previousElementSibling.textContent + " Must be between "+charsMin+" and "+charsMax +" characters";
+        if(charsMax==charsMin){
+            error.textContent =
+            input.previousElementSibling.textContent +
+            " Must be " +
+            charsMin+
+            " characters";
+        input.classList.add("error-input");
+        return input.parentNode.insertBefore(error, input.nextSibling);
+        }
+        error.textContent =
+            input.previousElementSibling.textContent +
+            " Must be between " +
+            charsMin +
+            " and " +
+            charsMax +
+            " characters";
         input.classList.add("error-input");
         return input.parentNode.insertBefore(error, input.nextSibling);
     } else {
         return true;
     }
-}
-export function fetchGet(url) {
-    return fetch(url)
-        .then(function (response) {
-            if(response.ok){
-            return response.json();
-            }else{throw new Error(response.status)}
-        })
-        .then(function (jsonData) {
-            return jsonData;
-        })
-        .catch(function (error) {
-            alert(error);
-        });
 }

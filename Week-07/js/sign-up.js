@@ -1,4 +1,4 @@
-import * as utils  from './util.js';
+import * as utils from "./util.js";
 window.addEventListener("load", function () {
     var form = document.getElementById("submitForm");
     var nameData = document.getElementById("name");
@@ -13,6 +13,23 @@ window.addEventListener("load", function () {
     var passwordData = document.getElementById("password");
     var repeatPasswordData = document.getElementById("repeatPassword");
     var url = "https://api-rest-server.vercel.app/signup";
+
+    if (localStorage.hasOwnProperty("email")) {
+        emailData.setAttribute("value", localStorage.getItem("email"));
+        nameData.setAttribute("value", localStorage.getItem("name"));
+        lastNameData.setAttribute("value", localStorage.getItem("lastName"));
+        dniData.setAttribute("value", localStorage.getItem("dni"));
+        phoneNumberData.setAttribute("value", localStorage.getItem("phone"));
+        addressData.setAttribute("value", localStorage.getItem("address"));
+        locationData.setAttribute("value", localStorage.getItem("city"));
+        postalCodeData.setAttribute("value", localStorage.getItem("zip"));
+        passwordData.setAttribute("value", localStorage.getItem("password"));
+        repeatPasswordData.setAttribute(
+            "value",
+            localStorage.getItem("repeatPassword")
+        );
+        birthdateData.setAttribute("value", localStorage.getItem("dob"));
+    }
 
     nameData.addEventListener("blur", function () {
         validationNameData(nameData);
@@ -82,100 +99,12 @@ window.addEventListener("load", function () {
     });
 
     form.addEventListener("submit", submitUser);
+    
     function submitUser(e) {
-        var errors = [];
         e.preventDefault();
-        var msg;
-        utils.fetchGet(queryData()).then((response) => {
-        if (response.msg == undefined) {
-            for (var i = 0; i < response.errors.length; i++) {
-                msg +=
-                    "\nThe " +
-                    response.errors[i].param +
-                    ": " +
-                    response.errors[i].value +
-                    "\nHas the following error: " +
-                    response.errors[i].msg;
-            }
-        } else {
-            msg = response.msg;
-        }
-        alert("Login: " + response.success + "\n" + msg);
-        });
-        validationNameData(nameData);
-        validationNameData(lastNameData);
-        validationDni(dniData);
-        validationPhoneNumber(phoneNumberData);
-        validationAddress(addressData);
-        validationLocation(locationData);
-        validationEmail(emailData);
-        validationPostalCode(postalCodeData);
-        validationPassword(passwordData);
-        validationBirthdate(birthdateData);
-        validationrepeatPassword(repeatPasswordData);
-        if (!validationNameData(nameData)) {
-            errors.push("\nName is not valid");
-        }
-        if (!validationNameData(lastNameData)) {
-            errors.push("\nLastName is not valid");
-        }
-        if (!validationDni(dniData)) {
-            errors.push("\nDNI is not valid");
-        }
-        if (!validationPhoneNumber(phoneNumberData)) {
-            errors.push("\nPhoneNumber is not valid");
-        }
-        if (!validationAddress(addressData)) {
-            errors.push("\nAddress is not valid");
-        }
-        if (!validationLocation(locationData)) {
-            errors.push("\nLocation is not valid");
-        }
-        if (!validationEmail(emailData)) {
-            errors.push("\nEmail is not valid");
-        }
-        if (!validationPostalCode(postalCodeData)) {
-            errors.push("\nPostal Code is not valid");
-        }
-        if (!validationPassword(passwordData)) {
-            errors.push("\nPassword is not valid");
-        }
-        if (!validationrepeatPassword(repeatPasswordData)) {
-            errors.push("\nRepeat Password is not valid");
-        }
-        if (!validationBirthdate(birthdateData)) {
-            errors.push("\nBirthdate is not valid");
-        }
-        if (!errors.length) {
-            createLocalUser();
-            alert(
-                "Name: " +
-                    nameData.value +
-                    "\nLastName: " +
-                    lastNameData.value +
-                    "\nDNI: " +
-                    dniData.value +
-                    "\nBirthdate: " +
-                    utils.changeDateFormat(birthdateData.value) +
-                    "\nPhone number:  " +
-                    phoneNumberData.value +
-                    "\nAddress: " +
-                    addressData.value +
-                    "\nLocation: " +
-                    locationData.value +
-                    "\nPostal Code: " +
-                    postalCodeData.value +
-                    "\nE-mail: " +
-                    emailData.value +
-                    "\nPassword: " +
-                    passwordData.value +
-                    "\nRePassword: " +
-                    rPasswordData.value
-            );
-        } else {
-            alert(errors);
-        }
+        fetchGet(queryData());
     }
+
     function queryData() {
         var name = encodeURIComponent(nameData.value);
         var lastName = encodeURIComponent(lastNameData.value);
@@ -186,7 +115,9 @@ window.addEventListener("load", function () {
         var email = encodeURIComponent(emailData.value);
         var zip = encodeURIComponent(postalCodeData.value);
         var password = encodeURIComponent(passwordData.value);
-        var dob = encodeURIComponent(utils.changeDateFormat(birthdateData.value));
+        var dob = encodeURIComponent(
+            utils.changeDateFormat(birthdateData.value)
+        );
         var params =
             "name=" +
             name +
@@ -243,7 +174,7 @@ window.addEventListener("load", function () {
         utils.cleanErrors(input);
         if (
             utils.noContains(input) &&
-            utils.lengthValidator(input, 9, 11) &&
+            utils.lengthValidator(input, 10, 10) &&
             utils.containsNumber(input) &&
             !utils.containsSpecialCharacter(input)
         ) {
@@ -369,7 +300,40 @@ window.addEventListener("load", function () {
         localStorage.setItem("city", locationData.value);
         localStorage.setItem("zip", postalCodeData.value);
         localStorage.setItem("password", passwordData.value);
-        localStorage.setItem("rpassword", rPasswordData.value);
+        localStorage.setItem("repeatPassword", repeatPasswordData.value);
         localStorage.setItem("dob", birthdateData.value);
+    }
+    function fetchGet(url) {
+        return fetch(url)
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (jsonData) {
+                if (jsonData.success) {
+                    createLocalUser()
+                    return alert(
+                        "Login: " + jsonData.success + "\n" + jsonData.msg
+                    );
+                }
+                var msg;
+                if (jsonData.errors) {
+                    for (var i = 0; i < jsonData.errors.length; i++) {
+                        console.log(msg);
+                        msg +=
+                            "\nThe " +
+                            jsonData.errors[i].param +
+                            ": " +
+                            jsonData.errors[i].value +
+                            "\nHas the following error: " +
+                            jsonData.errors[i].msg;
+                    }
+                    throw new Error(msg);
+                }
+                throw new Error(jsonData.msg);
+            })
+            .catch(function (error) {
+                console.log(error);
+                return alert(error);
+            });
     }
 });

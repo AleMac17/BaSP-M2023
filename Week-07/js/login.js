@@ -1,4 +1,4 @@
-import * as utils  from './util.js';
+import * as utils from "./util.js";
 window.addEventListener("load", function () {
     var form = document.getElementById("submitForm");
     var emailData = document.getElementById("email");
@@ -17,46 +17,20 @@ window.addEventListener("load", function () {
     emailData.addEventListener("focus", function () {
         utils.cleanErrors(emailData);
     });
+
     form.addEventListener("submit", submitUser);
 
     function submitUser(e) {
-        var msg;
         e.preventDefault();
-        utils.fetchGet(queryData()).then((response) => {
-            if (response.msg == undefined) {
-                for (var i = 0; i < response.errors.length; i++) {
-                    msg +=
-                        "\nThe " +
-                        response.errors[i].param +
-                        ": " +
-                        response.errors[i].value +
-                        "\nHas the following error: " +
-                        response.errors[i].msg;
-                }
-            } else {
-                msg = response.msg;
-            }
-            alert("Login: " + response.success + "\n" + msg);
-            });
-        if (validationEmail(emailData) && validationPassword(passwordData)) {
-            alert(
-                "Email: " + emailData.value + "\nPassword: " + passwordData.value
-            );
-        }else if(!validationEmail(emailData) && !validationPassword(passwordData)){
-            alert("Email and password are invalid");
-        } else if (!validationEmail(emailData)) {
-            alert("The email does not have a valid format");
-        } else if (!validationPassword(passwordData)) {
-            alert("The password is not valid");
-        }
+        fetchGet(queryData());
     }
-    function queryData(){
-        var params= new URLSearchParams({
-            email:emailData.value,
-            password:passwordData.value
-        })
-        var requestUrl = url+"?"+params.toString();
-        return requestUrl
+    function queryData() {
+        var params = new URLSearchParams({
+            email: emailData.value,
+            password: passwordData.value,
+        });
+        var requestUrl = url + "?" + params.toString();
+        return requestUrl;
     }
     function validationEmail(input) {
         var error = document.createElement("p");
@@ -85,5 +59,37 @@ window.addEventListener("load", function () {
         } else {
             return false;
         }
+    }
+    function fetchGet(url) {
+        return fetch(url)
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (jsonData) {
+                if (jsonData.success) {
+                    return alert(
+                        "Login: " + jsonData.success + "\n" + jsonData.msg
+                    );
+                }
+                var msg;
+                if (jsonData.errors) {
+                    for (var i = 0; i < jsonData.errors.length; i++) {
+                        console.log(msg);
+                        msg +=
+                            "\nThe " +
+                            jsonData.errors[i].param +
+                            ": " +
+                            jsonData.errors[i].value +
+                            "\nHas the following error: " +
+                            jsonData.errors[i].msg;
+                    }
+                    throw new Error(msg);
+                }
+                throw new Error(jsonData.msg);
+            })
+            .catch(function (error) {
+                console.log(error);
+                return alert(error);
+            });
     }
 });
