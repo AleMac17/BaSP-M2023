@@ -66,12 +66,12 @@ window.addEventListener("load", function () {
                 return response.json();
             })
             .then(function (jsonData) {
+                var msg = "";
                 if (jsonData.success) {
                     return alert(
                         "Login: " + jsonData.success + "\n" + jsonData.msg
                     );
                 }
-                var msg;
                 if (jsonData.errors) {
                     for (var i = 0; i < jsonData.errors.length; i++) {
                         console.log(msg);
@@ -88,7 +88,6 @@ window.addEventListener("load", function () {
                 throw new Error(jsonData.msg);
             })
             .catch(function (error) {
-                console.log(error);
                 return alert(error);
             });
     }

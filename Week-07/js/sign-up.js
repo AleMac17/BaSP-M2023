@@ -160,7 +160,7 @@ window.addEventListener("load", function () {
         utils.cleanErrors(input);
         if (
             utils.noContains(input) &&
-            utils.lengthValidator(input, 3, 30) &&
+            utils.lengthValidator(input, 7, 8) &&
             utils.containsNumber(input) &&
             !utils.containsSpecialCharacter(input)
         ) {
@@ -201,7 +201,7 @@ window.addEventListener("load", function () {
         utils.cleanErrors(input);
         if (
             utils.noContains(input) &&
-            utils.lengthValidator(input, 3, 6) &&
+            utils.lengthValidator(input, 4, 5) &&
             utils.containsNumber(input) &&
             !utils.containsSpecialCharacter(input)
         ) {
@@ -309,13 +309,13 @@ window.addEventListener("load", function () {
                 return response.json();
             })
             .then(function (jsonData) {
+                var msg = "";
                 if (jsonData.success) {
                     createLocalUser()
                     return alert(
                         "Login: " + jsonData.success + "\n" + jsonData.msg
                     );
                 }
-                var msg;
                 if (jsonData.errors) {
                     for (var i = 0; i < jsonData.errors.length; i++) {
                         console.log(msg);
@@ -332,7 +332,6 @@ window.addEventListener("load", function () {
                 throw new Error(jsonData.msg);
             })
             .catch(function (error) {
-                console.log(error);
                 return alert(error);
             });
     }
